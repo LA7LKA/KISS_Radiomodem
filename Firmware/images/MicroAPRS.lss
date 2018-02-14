@@ -1,0 +1,3568 @@
+
+images/MicroAPRS.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000012  00800100  00001636  000016ca  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00001636  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000072a  00800112  00800112  000016dc  2**0
+                  ALLOC
+  3 .stab         00003ad4  00000000  00000000  000016dc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00002488  00000000  00000000  000051b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      00000011  00000000  00000000  00007638  2**0
+                  CONTENTS, READONLY
+  6 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000764c  2**2
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 74 01 	jmp	0x2e8	; 0x2e8 <__ctors_end>
+       4:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+       8:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+       c:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      10:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      14:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      18:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      1c:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      20:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      24:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      28:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      2c:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      30:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      34:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      38:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      3c:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      40:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      44:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      48:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      4c:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      50:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      54:	0c 94 ad 06 	jmp	0xd5a	; 0xd5a <__vector_21>
+      58:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      5c:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      60:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+      64:	0c 94 91 01 	jmp	0x322	; 0x322 <__bad_interrupt>
+
+00000068 <__trampolines_end>:
+      68:	80 81       	ld	r24, Z
+      6a:	83 84       	ldd	r8, Z+11	; 0x0b
+      6c:	86 87       	std	Z+14, r24	; 0x0e
+      6e:	89 8a       	std	Y+17, r8	; 0x11
+      70:	8c 8e       	std	Y+28, r8	; 0x1c
+      72:	8f 91       	pop	r24
+      74:	92 94       	swap	r9
+      76:	95 97       	sbiw	r26, 0x25	; 37
+      78:	98 9a       	sbi	0x13, 0	; 19
+      7a:	9b 9d       	mul	r25, r11
+      7c:	9e a0       	ldd	r9, Y+38	; 0x26
+      7e:	a2 a3       	std	Z+34, r26	; 0x22
+      80:	a5 a6       	std	Z+45, r10	; 0x2d
+      82:	a7 a9       	ldd	r26, Z+55	; 0x37
+      84:	aa ac       	ldd	r10, Y+58	; 0x3a
+      86:	ad af       	std	Y+61, r26	; 0x3d
+      88:	b0 b2       	in	r11, 0x10	; 16
+      8a:	b3 b5       	in	r27, 0x23	; 35
+      8c:	b6 b7       	in	r27, 0x36	; 54
+      8e:	b9 ba       	out	0x19, r11	; 25
+      90:	bc bd       	out	0x2c, r27	; 44
+      92:	be c0       	rjmp	.+380    	; 0x210 <crc_ccit_table+0x128>
+      94:	c1 c2       	rjmp	.+1410   	; 0x618 <AFSK_init+0x8>
+      96:	c4 c5       	rjmp	.+2952   	; 0xc20 <AFSK_adc_isr+0x28a>
+      98:	c6 c8       	rjmp	.-3700   	; 0xfffff226 <__eeprom_end+0xff7ef226>
+      9a:	c9 ca       	rjmp	.-2670   	; 0xfffff62e <__eeprom_end+0xff7ef62e>
+      9c:	cb cd       	rjmp	.-1130   	; 0xfffffc34 <__eeprom_end+0xff7efc34>
+      9e:	ce cf       	rjmp	.-100    	; 0x3c <__zero_reg__+0x3b>
+      a0:	d0 d2       	rcall	.+1440   	; 0x642 <AFSK_init+0x32>
+      a2:	d3 d4       	rcall	.+2470   	; 0xa4a <AFSK_adc_isr+0xb4>
+      a4:	d5 d6       	rcall	.+3498   	; 0xe50 <ax25_putchar+0x4e>
+      a6:	d7 d9       	rcall	.-3154   	; 0xfffff456 <__eeprom_end+0xff7ef456>
+      a8:	da db       	rcall	.-2124   	; 0xfffff85e <__eeprom_end+0xff7ef85e>
+      aa:	dc dd       	rcall	.-1096   	; 0xfffffc64 <__eeprom_end+0xff7efc64>
+      ac:	de df       	rcall	.-68     	; 0x6a <__trampolines_end+0x2>
+      ae:	e0 e1       	ldi	r30, 0x10	; 16
+      b0:	e2 e3       	ldi	r30, 0x32	; 50
+      b2:	e4 e5       	ldi	r30, 0x54	; 84
+      b4:	e6 e7       	ldi	r30, 0x76	; 118
+      b6:	e8 e9       	ldi	r30, 0x98	; 152
+      b8:	ea ea       	ldi	r30, 0xAA	; 170
+      ba:	eb ec       	ldi	r30, 0xCB	; 203
+      bc:	ed ee       	ldi	r30, 0xED	; 237
+      be:	ee ef       	ldi	r30, 0xFE	; 254
+      c0:	f0 f1       	brcs	.+124    	; 0x13e <crc_ccit_table+0x56>
+      c2:	f1 f2       	breq	.-68     	; 0x80 <__trampolines_end+0x18>
+      c4:	f3 f3       	brvs	.-4      	; 0xc2 <__trampolines_end+0x5a>
+      c6:	f4 f5       	brge	.+124    	; 0x144 <crc_ccit_table+0x5c>
+      c8:	f5 f6       	brhc	.-68     	; 0x86 <__trampolines_end+0x1e>
+      ca:	f6 f7       	brtc	.-4      	; 0xc8 <__trampolines_end+0x60>
+      cc:	f8 f8       	.word	0xf8f8	; ????
+      ce:	f9 f9       	.word	0xf9f9	; ????
+      d0:	fa fa       	.word	0xfafa	; ????
+      d2:	fa fb       	.word	0xfbfa	; ????
+      d4:	fb fc       	.word	0xfcfb	; ????
+      d6:	fc fc       	.word	0xfcfc	; ????
+      d8:	fd fd       	.word	0xfdfd	; ????
+      da:	fd fd       	.word	0xfdfd	; ????
+      dc:	fe fe       	.word	0xfefe	; ????
+      de:	fe fe       	.word	0xfefe	; ????
+      e0:	fe ff       	.word	0xfffe	; ????
+      e2:	ff ff       	.word	0xffff	; ????
+      e4:	ff ff       	.word	0xffff	; ????
+      e6:	ff ff       	.word	0xffff	; ????
+
+000000e8 <crc_ccit_table>:
+      e8:	00 00 89 11 12 23 9b 32 24 46 ad 57 36 65 bf 74     .....#.2$F.W6e.t
+      f8:	48 8c c1 9d 5a af d3 be 6c ca e5 db 7e e9 f7 f8     H...Z...l...~...
+     108:	81 10 08 01 93 33 1a 22 a5 56 2c 47 b7 75 3e 64     .....3.".V,G.u>d
+     118:	c9 9c 40 8d db bf 52 ae ed da 64 cb ff f9 76 e8     ..@...R...d...v.
+     128:	02 21 8b 30 10 02 99 13 26 67 af 76 34 44 bd 55     .!.0....&g.v4D.U
+     138:	4a ad c3 bc 58 8e d1 9f 6e eb e7 fa 7c c8 f5 d9     J...X...n...|...
+     148:	83 31 0a 20 91 12 18 03 a7 77 2e 66 b5 54 3c 45     .1. .....w.f.T<E
+     158:	cb bd 42 ac d9 9e 50 8f ef fb 66 ea fd d8 74 c9     ..B...P...f...t.
+     168:	04 42 8d 53 16 61 9f 70 20 04 a9 15 32 27 bb 36     .B.S.a.p ...2'.6
+     178:	4c ce c5 df 5e ed d7 fc 68 88 e1 99 7a ab f3 ba     L...^...h...z...
+     188:	85 52 0c 43 97 71 1e 60 a1 14 28 05 b3 37 3a 26     .R.C.q.`..(..7:&
+     198:	cd de 44 cf df fd 56 ec e9 98 60 89 fb bb 72 aa     ..D...V...`...r.
+     1a8:	06 63 8f 72 14 40 9d 51 22 25 ab 34 30 06 b9 17     .c.r.@.Q"%.40...
+     1b8:	4e ef c7 fe 5c cc d5 dd 6a a9 e3 b8 78 8a f1 9b     N...\...j...x...
+     1c8:	87 73 0e 62 95 50 1c 41 a3 35 2a 24 b1 16 38 07     .s.b.P.A.5*$..8.
+     1d8:	cf ff 46 ee dd dc 54 cd eb b9 62 a8 f9 9a 70 8b     ..F...T...b...p.
+     1e8:	08 84 81 95 1a a7 93 b6 2c c2 a5 d3 3e e1 b7 f0     ........,...>...
+     1f8:	40 08 c9 19 52 2b db 3a 64 4e ed 5f 76 6d ff 7c     @...R+.:dN._vm.|
+     208:	89 94 00 85 9b b7 12 a6 ad d2 24 c3 bf f1 36 e0     ..........$...6.
+     218:	c1 18 48 09 d3 3b 5a 2a e5 5e 6c 4f f7 7d 7e 6c     ..H..;Z*.^lO.}~l
+     228:	0a a5 83 b4 18 86 91 97 2e e3 a7 f2 3c c0 b5 d1     ............<...
+     238:	42 29 cb 38 50 0a d9 1b 66 6f ef 7e 74 4c fd 5d     B).8P...fo.~tL.]
+     248:	8b b5 02 a4 99 96 10 87 af f3 26 e2 bd d0 34 c1     ..........&...4.
+     258:	c3 39 4a 28 d1 1a 58 0b e7 7f 6e 6e f5 5c 7c 4d     .9J(..X...nn.\|M
+     268:	0c c6 85 d7 1e e5 97 f4 28 80 a1 91 3a a3 b3 b2     ........(...:...
+     278:	44 4a cd 5b 56 69 df 78 60 0c e9 1d 72 2f fb 3e     DJ.[Vi.x`...r/.>
+     288:	8d d6 04 c7 9f f5 16 e4 a9 90 20 81 bb b3 32 a2     .......... ...2.
+     298:	c5 5a 4c 4b d7 79 5e 68 e1 1c 68 0d f3 3f 7a 2e     .ZLK.y^h..h..?z.
+     2a8:	0e e7 87 f6 1c c4 95 d5 2a a1 a3 b0 38 82 b1 93     ........*...8...
+     2b8:	46 6b cf 7a 54 48 dd 59 62 2d eb 3c 70 0e f9 1f     Fk.zTH.Yb-.<p...
+     2c8:	8f f7 06 e6 9d d4 14 c5 ab b1 22 a0 b9 92 30 83     .........."...0.
+     2d8:	c7 7b 4e 6a d5 58 5c 49 e3 3d 6a 2c f1 1e 78 0f     .{Nj.X\I.=j,..x.
+
+000002e8 <__ctors_end>:
+     2e8:	11 24       	eor	r1, r1
+     2ea:	1f be       	out	0x3f, r1	; 63
+     2ec:	cf ef       	ldi	r28, 0xFF	; 255
+     2ee:	d8 e0       	ldi	r29, 0x08	; 8
+     2f0:	de bf       	out	0x3e, r29	; 62
+     2f2:	cd bf       	out	0x3d, r28	; 61
+
+000002f4 <__do_copy_data>:
+     2f4:	11 e0       	ldi	r17, 0x01	; 1
+     2f6:	a0 e0       	ldi	r26, 0x00	; 0
+     2f8:	b1 e0       	ldi	r27, 0x01	; 1
+     2fa:	e6 e3       	ldi	r30, 0x36	; 54
+     2fc:	f6 e1       	ldi	r31, 0x16	; 22
+     2fe:	02 c0       	rjmp	.+4      	; 0x304 <__do_copy_data+0x10>
+     300:	05 90       	lpm	r0, Z+
+     302:	0d 92       	st	X+, r0
+     304:	a2 31       	cpi	r26, 0x12	; 18
+     306:	b1 07       	cpc	r27, r17
+     308:	d9 f7       	brne	.-10     	; 0x300 <__do_copy_data+0xc>
+
+0000030a <__do_clear_bss>:
+     30a:	28 e0       	ldi	r18, 0x08	; 8
+     30c:	a2 e1       	ldi	r26, 0x12	; 18
+     30e:	b1 e0       	ldi	r27, 0x01	; 1
+     310:	01 c0       	rjmp	.+2      	; 0x314 <.do_clear_bss_start>
+
+00000312 <.do_clear_bss_loop>:
+     312:	1d 92       	st	X+, r1
+
+00000314 <.do_clear_bss_start>:
+     314:	ac 33       	cpi	r26, 0x3C	; 60
+     316:	b2 07       	cpc	r27, r18
+     318:	e1 f7       	brne	.-8      	; 0x312 <.do_clear_bss_loop>
+     31a:	0e 94 d2 09 	call	0x13a4	; 0x13a4 <main>
+     31e:	0c 94 19 0b 	jmp	0x1632	; 0x1632 <_exit>
+
+00000322 <__bad_interrupt>:
+     322:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000326 <ax25_callback>:
+Afsk modem;
+AX25Ctx AX25;
+
+#if SERIAL_PROTOCOL == PROTOCOL_KISS
+    static void ax25_callback(struct AX25Ctx *ctx) {
+        kiss_messageCallback(ctx);
+     326:	0c 94 5e 08 	jmp	0x10bc	; 0x10bc <kiss_messageCallback>
+
+0000032a <init>:
+        ss_messageCallback(msg);
+    }
+#endif
+
+void init(void) {
+    sei();
+     32a:	78 94       	sei
+
+    AFSK_init(&modem);
+     32c:	8c e2       	ldi	r24, 0x2C	; 44
+     32e:	94 e0       	ldi	r25, 0x04	; 4
+     330:	0e 94 08 03 	call	0x610	; 0x610 <AFSK_init>
+    ax25_init(&AX25, &modem.fd, ax25_callback);
+     334:	43 e9       	ldi	r20, 0x93	; 147
+     336:	51 e0       	ldi	r21, 0x01	; 1
+     338:	6c e2       	ldi	r22, 0x2C	; 44
+     33a:	74 e0       	ldi	r23, 0x04	; 4
+     33c:	88 e0       	ldi	r24, 0x08	; 8
+     33e:	95 e0       	ldi	r25, 0x05	; 5
+     340:	0e 94 45 07 	call	0xe8a	; 0xe8a <ax25_init>
+
+    serial_init(&serial);    
+     344:	8a ef       	ldi	r24, 0xFA	; 250
+     346:	94 e0       	ldi	r25, 0x04	; 4
+     348:	0e 94 c3 01 	call	0x386	; 0x386 <serial_init>
+    stdout = &serial.uart0;
+     34c:	e6 e3       	ldi	r30, 0x36	; 54
+     34e:	f8 e0       	ldi	r31, 0x08	; 8
+     350:	8a ef       	ldi	r24, 0xFA	; 250
+     352:	94 e0       	ldi	r25, 0x04	; 4
+     354:	93 83       	std	Z+3, r25	; 0x03
+     356:	82 83       	std	Z+2, r24	; 0x02
+    stdin  = &serial.uart0;
+     358:	91 83       	std	Z+1, r25	; 0x01
+     35a:	80 83       	st	Z, r24
+
+    #if SERIAL_PROTOCOL == PROTOCOL_KISS
+        kiss_init(&AX25, &modem, &serial);
+     35c:	ac 01       	movw	r20, r24
+     35e:	6c e2       	ldi	r22, 0x2C	; 44
+     360:	74 e0       	ldi	r23, 0x04	; 4
+     362:	88 e0       	ldi	r24, 0x08	; 8
+     364:	95 e0       	ldi	r25, 0x05	; 5
+     366:	0c 94 51 08 	jmp	0x10a2	; 0x10a2 <kiss_init>
+
+0000036a <uart0_putchar>:
+    return false;
+}
+
+
+void uart0_putchar(char c) {
+    loop_until_bit_is_set(UCSR0A, UDRE0);
+     36a:	90 91 c0 00 	lds	r25, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7e00c0>
+     36e:	95 ff       	sbrs	r25, 5
+     370:	fc cf       	rjmp	.-8      	; 0x36a <uart0_putchar>
+    UDR0 = c;
+     372:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+     376:	08 95       	ret
+
+00000378 <uart0_getchar>:
+}
+
+char uart0_getchar(void) {
+    loop_until_bit_is_set(UCSR0A, RXC0);
+     378:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7e00c0>
+     37c:	87 ff       	sbrs	r24, 7
+     37e:	fc cf       	rjmp	.-8      	; 0x378 <uart0_getchar>
+    return UDR0;
+     380:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+}
+     384:	08 95       	ret
+
+00000386 <serial_init>:
+#include "Serial.h"
+#include <util/setbaud.h>
+#include <stdio.h>
+#include <string.h>
+
+void serial_init(Serial *serial) {
+     386:	cf 93       	push	r28
+     388:	df 93       	push	r29
+     38a:	cd b7       	in	r28, 0x3d	; 61
+     38c:	de b7       	in	r29, 0x3e	; 62
+     38e:	2e 97       	sbiw	r28, 0x0e	; 14
+     390:	0f b6       	in	r0, 0x3f	; 63
+     392:	f8 94       	cli
+     394:	de bf       	out	0x3e, r29	; 62
+     396:	0f be       	out	0x3f, r0	; 63
+     398:	cd bf       	out	0x3d, r28	; 61
+     39a:	dc 01       	movw	r26, r24
+    memset(serial, 0, sizeof(*serial));
+     39c:	8e e0       	ldi	r24, 0x0E	; 14
+     39e:	fd 01       	movw	r30, r26
+     3a0:	98 2f       	mov	r25, r24
+     3a2:	11 92       	st	Z+, r1
+     3a4:	9a 95       	dec	r25
+     3a6:	e9 f7       	brne	.-6      	; 0x3a2 <serial_init+0x1c>
+    UBRR0H = UBRRH_VALUE;
+     3a8:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
+    UBRR0L = UBRRL_VALUE;
+     3ac:	93 e3       	ldi	r25, 0x33	; 51
+     3ae:	90 93 c4 00 	sts	0x00C4, r25	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
+
+    #if USE_2X
+        UCSR0A |= _BV(U2X0);
+    #else
+        UCSR0A &= ~(_BV(U2X0));
+     3b2:	e0 ec       	ldi	r30, 0xC0	; 192
+     3b4:	f0 e0       	ldi	r31, 0x00	; 0
+     3b6:	90 81       	ld	r25, Z
+     3b8:	9d 7f       	andi	r25, 0xFD	; 253
+     3ba:	90 83       	st	Z, r25
+    #endif
+
+    // Set to 8-bit data, enable RX and TX
+    UCSR0C = _BV(UCSZ01) | _BV(UCSZ00);
+     3bc:	96 e0       	ldi	r25, 0x06	; 6
+     3be:	90 93 c2 00 	sts	0x00C2, r25	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
+    UCSR0B = _BV(RXEN0) | _BV(TXEN0);
+     3c2:	98 e1       	ldi	r25, 0x18	; 24
+     3c4:	90 93 c1 00 	sts	0x00C1, r25	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
+
+    FILE uart0_fd = FDEV_SETUP_STREAM(uart0_putchar, uart0_getchar, _FDEV_SETUP_RW);
+     3c8:	9e 01       	movw	r18, r28
+     3ca:	2f 5f       	subi	r18, 0xFF	; 255
+     3cc:	3f 4f       	sbci	r19, 0xFF	; 255
+     3ce:	f9 01       	movw	r30, r18
+     3d0:	11 92       	st	Z+, r1
+     3d2:	8a 95       	dec	r24
+     3d4:	e9 f7       	brne	.-6      	; 0x3d0 <serial_init+0x4a>
+
+    serial->uart0 = uart0_fd;
+     3d6:	83 e0       	ldi	r24, 0x03	; 3
+     3d8:	8c 83       	std	Y+4, r24	; 0x04
+     3da:	85 eb       	ldi	r24, 0xB5	; 181
+     3dc:	91 e0       	ldi	r25, 0x01	; 1
+     3de:	9a 87       	std	Y+10, r25	; 0x0a
+     3e0:	89 87       	std	Y+9, r24	; 0x09
+     3e2:	8c eb       	ldi	r24, 0xBC	; 188
+     3e4:	91 e0       	ldi	r25, 0x01	; 1
+     3e6:	9c 87       	std	Y+12, r25	; 0x0c
+     3e8:	8b 87       	std	Y+11, r24	; 0x0b
+     3ea:	9e e0       	ldi	r25, 0x0E	; 14
+     3ec:	f9 01       	movw	r30, r18
+     3ee:	01 90       	ld	r0, Z+
+     3f0:	0d 92       	st	X+, r0
+     3f2:	9a 95       	dec	r25
+     3f4:	e1 f7       	brne	.-8      	; 0x3ee <serial_init+0x68>
+}
+     3f6:	2e 96       	adiw	r28, 0x0e	; 14
+     3f8:	0f b6       	in	r0, 0x3f	; 63
+     3fa:	f8 94       	cli
+     3fc:	de bf       	out	0x3e, r29	; 62
+     3fe:	0f be       	out	0x3f, r0	; 63
+     400:	cd bf       	out	0x3d, r28	; 61
+     402:	df 91       	pop	r29
+     404:	cf 91       	pop	r28
+     406:	08 95       	ret
+
+00000408 <serial_available>:
+
+bool serial_available(uint8_t index) {
+    if (index == 0) {
+     408:	81 11       	cpse	r24, r1
+     40a:	06 c0       	rjmp	.+12     	; 0x418 <serial_available+0x10>
+        if (UCSR0A & _BV(RXC0)) return true;
+     40c:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7e00c0>
+     410:	88 1f       	adc	r24, r24
+     412:	88 27       	eor	r24, r24
+     414:	88 1f       	adc	r24, r24
+     416:	08 95       	ret
+    }
+    return false;
+     418:	80 e0       	ldi	r24, 0x00	; 0
+}
+     41a:	08 95       	ret
+
+0000041c <uart0_getchar_nowait>:
+    loop_until_bit_is_set(UCSR0A, RXC0);
+    return UDR0;
+}
+
+char uart0_getchar_nowait(void) {
+    if (!(UCSR0A & _BV(RXC0))) return EOF;
+     41c:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7e00c0>
+     420:	87 ff       	sbrs	r24, 7
+     422:	03 c0       	rjmp	.+6      	; 0x42a <uart0_getchar_nowait+0xe>
+    return UDR0;
+     424:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+     428:	08 95       	ret
+    loop_until_bit_is_set(UCSR0A, RXC0);
+    return UDR0;
+}
+
+char uart0_getchar_nowait(void) {
+    if (!(UCSR0A & _BV(RXC0))) return EOF;
+     42a:	8f ef       	ldi	r24, 0xFF	; 255
+    return UDR0;
+     42c:	08 95       	ret
+
+0000042e <afsk_putchar>:
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+      afsk->tailLength = DIV_ROUND(custom_tail * BITRATE, 8000);
+    }
+}
+
+void afsk_putchar(char c) {
+     42e:	0f 93       	push	r16
+     430:	1f 93       	push	r17
+     432:	cf 93       	push	r28
+     434:	df 93       	push	r29
+     436:	18 2f       	mov	r17, r24
+    AFSK_txStart(AFSK_modem);
+     438:	c0 91 2c 08 	lds	r28, 0x082C	; 0x80082c <AFSK_modem>
+     43c:	d0 91 2d 08 	lds	r29, 0x082D	; 0x80082d <AFSK_modem+0x1>
+    FILE afsk_fd = FDEV_SETUP_STREAM(afsk_putchar, afsk_getchar, _FDEV_SETUP_RW);
+    afsk->fd = afsk_fd;
+}
+
+static void AFSK_txStart(Afsk *afsk) {
+    if (!afsk->sending) {
+     440:	fe 01       	movw	r30, r28
+     442:	e9 59       	subi	r30, 0x99	; 153
+     444:	ff 4f       	sbci	r31, 0xFF	; 255
+     446:	80 81       	ld	r24, Z
+     448:	81 11       	cpse	r24, r1
+     44a:	24 c0       	rjmp	.+72     	; 0x494 <afsk_putchar+0x66>
+        afsk->phaseInc = MARK_INC;
+     44c:	80 e4       	ldi	r24, 0x40	; 64
+     44e:	90 e0       	ldi	r25, 0x00	; 0
+     450:	9e 8f       	std	Y+30, r25	; 0x1e
+     452:	8d 8f       	std	Y+29, r24	; 0x1d
+        afsk->phaseAcc = 0;
+     454:	1c 8e       	std	Y+28, r1	; 0x1c
+     456:	1b 8e       	std	Y+27, r1	; 0x1b
+        afsk->bitstuffCount = 0;
+     458:	1a 8e       	std	Y+26, r1	; 0x1a
+        afsk->sending = true;
+     45a:	01 e0       	ldi	r16, 0x01	; 1
+     45c:	00 83       	st	Z, r16
+        LED_TX_ON();
+     45e:	29 9a       	sbi	0x05, 1	; 5
+        afsk->preambleLength = DIV_ROUND(custom_preamble * BITRATE, 8000);
+     460:	20 91 09 01 	lds	r18, 0x0109	; 0x800109 <custom_preamble>
+     464:	30 91 0a 01 	lds	r19, 0x010A	; 0x80010a <custom_preamble+0x1>
+     468:	40 91 0b 01 	lds	r20, 0x010B	; 0x80010b <custom_preamble+0x2>
+     46c:	50 91 0c 01 	lds	r21, 0x010C	; 0x80010c <custom_preamble+0x3>
+     470:	a0 eb       	ldi	r26, 0xB0	; 176
+     472:	b4 e0       	ldi	r27, 0x04	; 4
+     474:	0e 94 15 0a 	call	0x142a	; 0x142a <__muluhisi3>
+     478:	60 56       	subi	r22, 0x60	; 96
+     47a:	70 4f       	sbci	r23, 0xF0	; 240
+     47c:	8f 4f       	sbci	r24, 0xFF	; 255
+     47e:	9f 4f       	sbci	r25, 0xFF	; 255
+     480:	20 e4       	ldi	r18, 0x40	; 64
+     482:	3f e1       	ldi	r19, 0x1F	; 31
+     484:	40 e0       	ldi	r20, 0x00	; 0
+     486:	50 e0       	ldi	r21, 0x00	; 0
+     488:	0e 94 e4 09 	call	0x13c8	; 0x13c8 <__udivmodsi4>
+     48c:	3b 8b       	std	Y+19, r19	; 0x13
+     48e:	2a 8b       	std	Y+18, r18	; 0x12
+        AFSK_DAC_IRQ_START();
+     490:	00 93 13 01 	sts	0x0113, r16	; 0x800113 <hw_afsk_dac_isr>
+    }
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+     494:	0f b7       	in	r16, 0x3f	; 63
+    return 1;
+}
+
+static __inline__ uint8_t __iCliRetVal(void)
+{
+    cli();
+     496:	f8 94       	cli
+      afsk->tailLength = DIV_ROUND(custom_tail * BITRATE, 8000);
+     498:	20 91 05 01 	lds	r18, 0x0105	; 0x800105 <custom_tail>
+     49c:	30 91 06 01 	lds	r19, 0x0106	; 0x800106 <custom_tail+0x1>
+     4a0:	40 91 07 01 	lds	r20, 0x0107	; 0x800107 <custom_tail+0x2>
+     4a4:	50 91 08 01 	lds	r21, 0x0108	; 0x800108 <custom_tail+0x3>
+     4a8:	a0 eb       	ldi	r26, 0xB0	; 176
+     4aa:	b4 e0       	ldi	r27, 0x04	; 4
+     4ac:	0e 94 15 0a 	call	0x142a	; 0x142a <__muluhisi3>
+     4b0:	60 56       	subi	r22, 0x60	; 96
+     4b2:	70 4f       	sbci	r23, 0xF0	; 240
+     4b4:	8f 4f       	sbci	r24, 0xFF	; 255
+     4b6:	9f 4f       	sbci	r25, 0xFF	; 255
+     4b8:	20 e4       	ldi	r18, 0x40	; 64
+     4ba:	3f e1       	ldi	r19, 0x1F	; 31
+     4bc:	40 e0       	ldi	r20, 0x00	; 0
+     4be:	50 e0       	ldi	r21, 0x00	; 0
+     4c0:	0e 94 e4 09 	call	0x13c8	; 0x13c8 <__udivmodsi4>
+     4c4:	3d 8b       	std	Y+21, r19	; 0x15
+     4c6:	2c 8b       	std	Y+20, r18	; 0x14
+    (void)__s;
+}
+
+static __inline__ void __iRestore(const  uint8_t *__s)
+{
+    SREG = *__s;
+     4c8:	0f bf       	out	0x3f, r16	; 63
+    }
+}
+
+void afsk_putchar(char c) {
+    AFSK_txStart(AFSK_modem);
+    while(fifo_isfull_locked(&AFSK_modem->txFifo)) { /* Wait */ }
+     4ca:	e0 91 2c 08 	lds	r30, 0x082C	; 0x80082c <AFSK_modem>
+     4ce:	f0 91 2d 08 	lds	r31, 0x082D	; 0x80082d <AFSK_modem+0x1>
+  return result;
+}
+
+static inline bool fifo_isfull_locked(const FIFOBuffer *f) {
+  bool result;
+  ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+     4d2:	4f b7       	in	r20, 0x3f	; 63
+    return 1;
+}
+
+static __inline__ uint8_t __iCliRetVal(void)
+{
+    cli();
+     4d4:	f8 94       	cli
+inline bool fifo_isempty(const FIFOBuffer *f) {
+  return f->head == f->tail;
+}
+
+inline bool fifo_isfull(const FIFOBuffer *f) {
+  return ((f->head == f->begin) && (f->tail == f->end)) || (f->tail == f->head - 1);
+     4d6:	23 a1       	ldd	r18, Z+35	; 0x23
+     4d8:	34 a1       	ldd	r19, Z+36	; 0x24
+     4da:	87 8d       	ldd	r24, Z+31	; 0x1f
+     4dc:	90 a1       	ldd	r25, Z+32	; 0x20
+     4de:	28 17       	cp	r18, r24
+     4e0:	39 07       	cpc	r19, r25
+     4e2:	39 f4       	brne	.+14     	; 0x4f2 <afsk_putchar+0xc4>
+     4e4:	25 a1       	ldd	r18, Z+37	; 0x25
+     4e6:	36 a1       	ldd	r19, Z+38	; 0x26
+     4e8:	81 a1       	ldd	r24, Z+33	; 0x21
+     4ea:	92 a1       	ldd	r25, Z+34	; 0x22
+     4ec:	28 17       	cp	r18, r24
+     4ee:	39 07       	cpc	r19, r25
+     4f0:	79 f0       	breq	.+30     	; 0x510 <afsk_putchar+0xe2>
+     4f2:	65 a1       	ldd	r22, Z+37	; 0x25
+     4f4:	76 a1       	ldd	r23, Z+38	; 0x26
+     4f6:	23 a1       	ldd	r18, Z+35	; 0x23
+     4f8:	34 a1       	ldd	r19, Z+36	; 0x24
+     4fa:	21 50       	subi	r18, 0x01	; 1
+     4fc:	31 09       	sbc	r19, r1
+     4fe:	91 e0       	ldi	r25, 0x01	; 1
+     500:	80 e0       	ldi	r24, 0x00	; 0
+     502:	62 17       	cp	r22, r18
+     504:	73 07       	cpc	r23, r19
+     506:	09 f0       	breq	.+2      	; 0x50a <afsk_putchar+0xdc>
+     508:	90 e0       	ldi	r25, 0x00	; 0
+     50a:	29 2f       	mov	r18, r25
+     50c:	38 2f       	mov	r19, r24
+     50e:	02 c0       	rjmp	.+4      	; 0x514 <afsk_putchar+0xe6>
+     510:	21 e0       	ldi	r18, 0x01	; 1
+     512:	30 e0       	ldi	r19, 0x00	; 0
+    (void)__s;
+}
+
+static __inline__ void __iRestore(const  uint8_t *__s)
+{
+    SREG = *__s;
+     514:	4f bf       	out	0x3f, r20	; 63
+     516:	23 2b       	or	r18, r19
+     518:	c1 f6       	brne	.-80     	; 0x4ca <afsk_putchar+0x9c>
+    fifo_push_locked(&AFSK_modem->txFifo, c);
+     51a:	e0 91 2c 08 	lds	r30, 0x082C	; 0x80082c <AFSK_modem>
+     51e:	f0 91 2d 08 	lds	r31, 0x082D	; 0x80082d <AFSK_modem+0x1>
+  }
+  return result;
+}
+
+static inline void fifo_push_locked(FIFOBuffer *f, unsigned char c) {
+  ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+     522:	2f b7       	in	r18, 0x3f	; 63
+    return 1;
+}
+
+static __inline__ uint8_t __iCliRetVal(void)
+{
+    cli();
+     524:	f8 94       	cli
+inline bool fifo_isfull(const FIFOBuffer *f) {
+  return ((f->head == f->begin) && (f->tail == f->end)) || (f->tail == f->head - 1);
+}
+
+inline void fifo_push(FIFOBuffer *f, unsigned char c) {
+  *(f->tail) = c;
+     526:	a5 a1       	ldd	r26, Z+37	; 0x25
+     528:	b6 a1       	ldd	r27, Z+38	; 0x26
+     52a:	1c 93       	st	X, r17
+  
+  if (f->tail == f->end) {
+     52c:	45 a1       	ldd	r20, Z+37	; 0x25
+     52e:	56 a1       	ldd	r21, Z+38	; 0x26
+     530:	81 a1       	ldd	r24, Z+33	; 0x21
+     532:	92 a1       	ldd	r25, Z+34	; 0x22
+     534:	48 17       	cp	r20, r24
+     536:	59 07       	cpc	r21, r25
+     538:	19 f4       	brne	.+6      	; 0x540 <afsk_putchar+0x112>
+    f->tail = f->begin;
+     53a:	87 8d       	ldd	r24, Z+31	; 0x1f
+     53c:	90 a1       	ldd	r25, Z+32	; 0x20
+     53e:	03 c0       	rjmp	.+6      	; 0x546 <afsk_putchar+0x118>
+  } else {
+    f->tail++;
+     540:	85 a1       	ldd	r24, Z+37	; 0x25
+     542:	96 a1       	ldd	r25, Z+38	; 0x26
+     544:	01 96       	adiw	r24, 0x01	; 1
+     546:	96 a3       	std	Z+38, r25	; 0x26
+     548:	85 a3       	std	Z+37, r24	; 0x25
+    (void)__s;
+}
+
+static __inline__ void __iRestore(const  uint8_t *__s)
+{
+    SREG = *__s;
+     54a:	2f bf       	out	0x3f, r18	; 63
+}
+     54c:	df 91       	pop	r29
+     54e:	cf 91       	pop	r28
+     550:	1f 91       	pop	r17
+     552:	0f 91       	pop	r16
+     554:	08 95       	ret
+
+00000556 <afsk_getchar>:
+
+int afsk_getchar(void) {
+    if (fifo_isempty_locked(&AFSK_modem->rxFifo)) {
+     556:	e0 91 2c 08 	lds	r30, 0x082C	; 0x80082c <AFSK_modem>
+     55a:	f0 91 2d 08 	lds	r31, 0x082D	; 0x80082d <AFSK_modem+0x1>
+  f->head = f->tail;
+}
+
+static inline bool fifo_isempty_locked(const FIFOBuffer *f) {
+  bool result;
+  ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+     55e:	4f b7       	in	r20, 0x3f	; 63
+    return 1;
+}
+
+static __inline__ uint8_t __iCliRetVal(void)
+{
+    cli();
+     560:	f8 94       	cli
+  unsigned char * volatile head;
+  unsigned char * volatile tail;
+} FIFOBuffer;
+
+inline bool fifo_isempty(const FIFOBuffer *f) {
+  return f->head == f->tail;
+     562:	eb 58       	subi	r30, 0x8B	; 139
+     564:	ff 4f       	sbci	r31, 0xFF	; 255
+     566:	24 81       	ldd	r18, Z+4	; 0x04
+     568:	35 81       	ldd	r19, Z+5	; 0x05
+     56a:	86 81       	ldd	r24, Z+6	; 0x06
+     56c:	97 81       	ldd	r25, Z+7	; 0x07
+    (void)__s;
+}
+
+static __inline__ void __iRestore(const  uint8_t *__s)
+{
+    SREG = *__s;
+     56e:	4f bf       	out	0x3f, r20	; 63
+     570:	28 17       	cp	r18, r24
+     572:	39 07       	cpc	r19, r25
+     574:	e9 f0       	breq	.+58     	; 0x5b0 <afsk_getchar+0x5a>
+        return EOF;
+    } else {
+        return fifo_pop_locked(&AFSK_modem->rxFifo);
+     576:	e0 91 2c 08 	lds	r30, 0x082C	; 0x80082c <AFSK_modem>
+     57a:	f0 91 2d 08 	lds	r31, 0x082D	; 0x80082d <AFSK_modem+0x1>
+  }
+}
+
+static inline unsigned char fifo_pop_locked(FIFOBuffer *f) {
+  unsigned char c;
+  ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+     57e:	9f b7       	in	r25, 0x3f	; 63
+    return 1;
+}
+
+static __inline__ uint8_t __iCliRetVal(void)
+{
+    cli();
+     580:	f8 94       	cli
+    f->tail++;
+  }
+}
+
+inline unsigned char fifo_pop(FIFOBuffer *f) {
+  if(f->head == f->end) {
+     582:	eb 58       	subi	r30, 0x8B	; 139
+     584:	ff 4f       	sbci	r31, 0xFF	; 255
+     586:	a4 81       	ldd	r26, Z+4	; 0x04
+     588:	b5 81       	ldd	r27, Z+5	; 0x05
+     58a:	22 81       	ldd	r18, Z+2	; 0x02
+     58c:	33 81       	ldd	r19, Z+3	; 0x03
+     58e:	a2 17       	cp	r26, r18
+     590:	b3 07       	cpc	r27, r19
+     592:	19 f4       	brne	.+6      	; 0x59a <afsk_getchar+0x44>
+    f->head = f->begin;
+     594:	20 81       	ld	r18, Z
+     596:	31 81       	ldd	r19, Z+1	; 0x01
+     598:	05 c0       	rjmp	.+10     	; 0x5a4 <afsk_getchar+0x4e>
+    return *(f->end);
+  } else {
+    return *(f->head++);
+     59a:	a4 81       	ldd	r26, Z+4	; 0x04
+     59c:	b5 81       	ldd	r27, Z+5	; 0x05
+     59e:	9d 01       	movw	r18, r26
+     5a0:	2f 5f       	subi	r18, 0xFF	; 255
+     5a2:	3f 4f       	sbci	r19, 0xFF	; 255
+     5a4:	35 83       	std	Z+5, r19	; 0x05
+     5a6:	24 83       	std	Z+4, r18	; 0x04
+     5a8:	8c 91       	ld	r24, X
+    (void)__s;
+}
+
+static __inline__ void __iRestore(const  uint8_t *__s)
+{
+    SREG = *__s;
+     5aa:	9f bf       	out	0x3f, r25	; 63
+     5ac:	90 e0       	ldi	r25, 0x00	; 0
+     5ae:	08 95       	ret
+    fifo_push_locked(&AFSK_modem->txFifo, c);
+}
+
+int afsk_getchar(void) {
+    if (fifo_isempty_locked(&AFSK_modem->rxFifo)) {
+        return EOF;
+     5b0:	8f ef       	ldi	r24, 0xFF	; 255
+     5b2:	9f ef       	ldi	r25, 0xFF	; 255
+    } else {
+        return fifo_pop_locked(&AFSK_modem->rxFifo);
+    }
+}
+     5b4:	08 95       	ret
+
+000005b6 <AFSK_hw_refDetect>:
+void AFSK_hw_refDetect(void) {
+    // This is manual for now
+    #if ADC_REFERENCE == REF_5V
+        hw_5v_ref = true;
+    #else
+        hw_5v_ref = false;
+     5b6:	10 92 12 01 	sts	0x0112, r1	; 0x800112 <__data_end>
+     5ba:	08 95       	ret
+
+000005bc <AFSK_hw_init>:
+     5bc:	10 92 12 01 	sts	0x0112, r1	; 0x800112 <__data_end>
+void AFSK_hw_init(void) {
+    // Set up ADC
+
+    AFSK_hw_refDetect();
+
+    TCCR1A = 0;                                    
+     5c0:	10 92 80 00 	sts	0x0080, r1	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
+    TCCR1B = _BV(CS10) | _BV(WGM13) | _BV(WGM12);
+     5c4:	89 e1       	ldi	r24, 0x19	; 25
+     5c6:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7e0081>
+    ICR1 = (((CPU_FREQ+FREQUENCY_CORRECTION)) / 9600) - 1;
+     5ca:	80 e4       	ldi	r24, 0x40	; 64
+     5cc:	93 e0       	ldi	r25, 0x03	; 3
+     5ce:	90 93 87 00 	sts	0x0087, r25	; 0x800087 <__TEXT_REGION_LENGTH__+0x7e0087>
+     5d2:	80 93 86 00 	sts	0x0086, r24	; 0x800086 <__TEXT_REGION_LENGTH__+0x7e0086>
+
+    if (hw_5v_ref) {
+     5d6:	80 91 12 01 	lds	r24, 0x0112	; 0x800112 <__data_end>
+     5da:	88 23       	and	r24, r24
+     5dc:	21 f0       	breq	.+8      	; 0x5e6 <AFSK_hw_init+0x2a>
+        ADMUX = _BV(REFS0) | 0;
+     5de:	80 e4       	ldi	r24, 0x40	; 64
+     5e0:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7e007c>
+     5e4:	02 c0       	rjmp	.+4      	; 0x5ea <AFSK_hw_init+0x2e>
+    } else {
+        ADMUX = 0;
+     5e6:	10 92 7c 00 	sts	0x007C, r1	; 0x80007c <__TEXT_REGION_LENGTH__+0x7e007c>
+    }
+
+    ADC_DDR  &= ~_BV(0);
+     5ea:	38 98       	cbi	0x07, 0	; 7
+    ADC_PORT &= ~_BV(0);
+     5ec:	40 98       	cbi	0x08, 0	; 8
+    DIDR0 |= _BV(0);
+     5ee:	80 91 7e 00 	lds	r24, 0x007E	; 0x80007e <__TEXT_REGION_LENGTH__+0x7e007e>
+     5f2:	81 60       	ori	r24, 0x01	; 1
+     5f4:	80 93 7e 00 	sts	0x007E, r24	; 0x80007e <__TEXT_REGION_LENGTH__+0x7e007e>
+    ADCSRB =    _BV(ADTS2) |
+     5f8:	87 e0       	ldi	r24, 0x07	; 7
+     5fa:	80 93 7b 00 	sts	0x007B, r24	; 0x80007b <__TEXT_REGION_LENGTH__+0x7e007b>
+                _BV(ADTS1) |
+                _BV(ADTS0);  
+    ADCSRA =    _BV(ADEN) |
+     5fe:	8c ee       	ldi	r24, 0xEC	; 236
+     600:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7e007a>
+                _BV(ADSC) |
+                _BV(ADATE)|
+                _BV(ADIE) |
+                _BV(ADPS2);
+
+    AFSK_DAC_INIT();
+     604:	8a b1       	in	r24, 0x0a	; 10
+     606:	88 6f       	ori	r24, 0xF8	; 248
+     608:	8a b9       	out	0x0a, r24	; 10
+    LED_TX_INIT();
+     60a:	21 9a       	sbi	0x04, 1	; 4
+    LED_RX_INIT();
+     60c:	22 9a       	sbi	0x04, 2	; 4
+     60e:	08 95       	ret
+
+00000610 <AFSK_init>:
+}
+
+void AFSK_init(Afsk *afsk) {
+     610:	0f 93       	push	r16
+     612:	1f 93       	push	r17
+     614:	cf 93       	push	r28
+     616:	df 93       	push	r29
+     618:	cd b7       	in	r28, 0x3d	; 61
+     61a:	de b7       	in	r29, 0x3e	; 62
+     61c:	2e 97       	sbiw	r28, 0x0e	; 14
+     61e:	0f b6       	in	r0, 0x3f	; 63
+     620:	f8 94       	cli
+     622:	de bf       	out	0x3e, r29	; 62
+     624:	0f be       	out	0x3f, r0	; 63
+     626:	cd bf       	out	0x3d, r28	; 61
+     628:	8c 01       	movw	r16, r24
+    // Allocate modem struct memory
+    memset(afsk, 0, sizeof(*afsk));
+     62a:	8a ec       	ldi	r24, 0xCA	; 202
+     62c:	d8 01       	movw	r26, r16
+     62e:	1d 92       	st	X+, r1
+     630:	8a 95       	dec	r24
+     632:	e9 f7       	brne	.-6      	; 0x62e <AFSK_init+0x1e>
+    AFSK_modem = afsk;
+     634:	10 93 2d 08 	sts	0x082D, r17	; 0x80082d <AFSK_modem+0x1>
+     638:	00 93 2c 08 	sts	0x082C, r16	; 0x80082c <AFSK_modem>
+    // Set phase increment
+    afsk->phaseInc = MARK_INC;
+     63c:	80 e4       	ldi	r24, 0x40	; 64
+     63e:	90 e0       	ldi	r25, 0x00	; 0
+     640:	f8 01       	movw	r30, r16
+     642:	96 8f       	std	Z+30, r25	; 0x1e
+     644:	85 8f       	std	Z+29, r24	; 0x1d
+    // Initialise FIFO buffers
+    fifo_init(&afsk->delayFifo, (uint8_t *)afsk->delayBuf, sizeof(afsk->delayBuf));
+     646:	c8 01       	movw	r24, r16
+     648:	80 59       	subi	r24, 0x90	; 144
+     64a:	9f 4f       	sbci	r25, 0xFF	; 255
+  }
+  return c;
+}
+
+inline void fifo_init(FIFOBuffer *f, unsigned char *buffer, size_t size) {
+  f->head = f->tail = f->begin = buffer;
+     64c:	e8 59       	subi	r30, 0x98	; 152
+     64e:	ff 4f       	sbci	r31, 0xFF	; 255
+     650:	91 83       	std	Z+1, r25	; 0x01
+     652:	80 83       	st	Z, r24
+     654:	97 83       	std	Z+7, r25	; 0x07
+     656:	86 83       	std	Z+6, r24	; 0x06
+     658:	95 83       	std	Z+5, r25	; 0x05
+     65a:	84 83       	std	Z+4, r24	; 0x04
+  f->end = buffer + size -1;
+     65c:	04 96       	adiw	r24, 0x04	; 4
+     65e:	93 83       	std	Z+3, r25	; 0x03
+     660:	82 83       	std	Z+2, r24	; 0x02
+    fifo_init(&afsk->rxFifo, afsk->rxBuf, sizeof(afsk->rxBuf));
+     662:	09 96       	adiw	r24, 0x09	; 9
+  }
+  return c;
+}
+
+inline void fifo_init(FIFOBuffer *f, unsigned char *buffer, size_t size) {
+  f->head = f->tail = f->begin = buffer;
+     664:	d8 01       	movw	r26, r16
+     666:	ab 58       	subi	r26, 0x8B	; 139
+     668:	bf 4f       	sbci	r27, 0xFF	; 255
+     66a:	11 96       	adiw	r26, 0x01	; 1
+     66c:	9c 93       	st	X, r25
+     66e:	8e 93       	st	-X, r24
+     670:	17 96       	adiw	r26, 0x07	; 7
+     672:	9c 93       	st	X, r25
+     674:	8e 93       	st	-X, r24
+     676:	16 97       	sbiw	r26, 0x06	; 6
+     678:	15 96       	adiw	r26, 0x05	; 5
+     67a:	9c 93       	st	X, r25
+     67c:	8e 93       	st	-X, r24
+     67e:	14 97       	sbiw	r26, 0x04	; 4
+  f->end = buffer + size -1;
+     680:	cf 96       	adiw	r24, 0x3f	; 63
+     682:	13 96       	adiw	r26, 0x03	; 3
+     684:	9c 93       	st	X, r25
+     686:	8e 93       	st	-X, r24
+     688:	12 97       	sbiw	r26, 0x02	; 2
+    fifo_init(&afsk->txFifo, afsk->txBuf, sizeof(afsk->txBuf));
+     68a:	85 59       	subi	r24, 0x95	; 149
+     68c:	91 09       	sbc	r25, r1
+  }
+  return c;
+}
+
+inline void fifo_init(FIFOBuffer *f, unsigned char *buffer, size_t size) {
+  f->head = f->tail = f->begin = buffer;
+     68e:	d8 01       	movw	r26, r16
+     690:	90 96       	adiw	r26, 0x20	; 32
+     692:	9c 93       	st	X, r25
+     694:	8e 93       	st	-X, r24
+     696:	5f 97       	sbiw	r26, 0x1f	; 31
+     698:	96 96       	adiw	r26, 0x26	; 38
+     69a:	9c 93       	st	X, r25
+     69c:	8e 93       	st	-X, r24
+     69e:	95 97       	sbiw	r26, 0x25	; 37
+     6a0:	94 96       	adiw	r26, 0x24	; 36
+     6a2:	9c 93       	st	X, r25
+     6a4:	8e 93       	st	-X, r24
+     6a6:	93 97       	sbiw	r26, 0x23	; 35
+  f->end = buffer + size -1;
+     6a8:	cf 96       	adiw	r24, 0x3f	; 63
+     6aa:	92 96       	adiw	r26, 0x22	; 34
+     6ac:	9c 93       	st	X, r25
+     6ae:	8e 93       	st	-X, r24
+     6b0:	91 97       	sbiw	r26, 0x21	; 33
+     6b2:	84 e0       	ldi	r24, 0x04	; 4
+     6b4:	90 e0       	ldi	r25, 0x00	; 0
+inline bool fifo_isfull(const FIFOBuffer *f) {
+  return ((f->head == f->begin) && (f->tail == f->end)) || (f->tail == f->head - 1);
+}
+
+inline void fifo_push(FIFOBuffer *f, unsigned char c) {
+  *(f->tail) = c;
+     6b6:	a6 81       	ldd	r26, Z+6	; 0x06
+     6b8:	b7 81       	ldd	r27, Z+7	; 0x07
+     6ba:	1c 92       	st	X, r1
+  
+  if (f->tail == f->end) {
+     6bc:	46 81       	ldd	r20, Z+6	; 0x06
+     6be:	57 81       	ldd	r21, Z+7	; 0x07
+     6c0:	22 81       	ldd	r18, Z+2	; 0x02
+     6c2:	33 81       	ldd	r19, Z+3	; 0x03
+     6c4:	42 17       	cp	r20, r18
+     6c6:	53 07       	cpc	r21, r19
+     6c8:	19 f4       	brne	.+6      	; 0x6d0 <AFSK_init+0xc0>
+    f->tail = f->begin;
+     6ca:	20 81       	ld	r18, Z
+     6cc:	31 81       	ldd	r19, Z+1	; 0x01
+     6ce:	04 c0       	rjmp	.+8      	; 0x6d8 <AFSK_init+0xc8>
+  } else {
+    f->tail++;
+     6d0:	26 81       	ldd	r18, Z+6	; 0x06
+     6d2:	37 81       	ldd	r19, Z+7	; 0x07
+     6d4:	2f 5f       	subi	r18, 0xFF	; 255
+     6d6:	3f 4f       	sbci	r19, 0xFF	; 255
+     6d8:	37 83       	std	Z+7, r19	; 0x07
+     6da:	26 83       	std	Z+6, r18	; 0x06
+     6dc:	01 97       	sbiw	r24, 0x01	; 1
+
+    // Fill delay FIFO with zeroes
+    for (int i = 0; i<SAMPLESPERBIT / 2; i++) {
+     6de:	59 f7       	brne	.-42     	; 0x6b6 <AFSK_init+0xa6>
+        fifo_push(&afsk->delayFifo, 0);
+    }
+
+    AFSK_hw_init();
+     6e0:	0e 94 de 02 	call	0x5bc	; 0x5bc <AFSK_hw_init>
+
+    // Set up streams
+    FILE afsk_fd = FDEV_SETUP_STREAM(afsk_putchar, afsk_getchar, _FDEV_SETUP_RW);
+     6e4:	8e e0       	ldi	r24, 0x0E	; 14
+     6e6:	fe 01       	movw	r30, r28
+     6e8:	31 96       	adiw	r30, 0x01	; 1
+     6ea:	df 01       	movw	r26, r30
+     6ec:	98 2f       	mov	r25, r24
+     6ee:	1d 92       	st	X+, r1
+     6f0:	9a 95       	dec	r25
+     6f2:	e9 f7       	brne	.-6      	; 0x6ee <AFSK_init+0xde>
+    afsk->fd = afsk_fd;
+     6f4:	93 e0       	ldi	r25, 0x03	; 3
+     6f6:	9c 83       	std	Y+4, r25	; 0x04
+     6f8:	27 e1       	ldi	r18, 0x17	; 23
+     6fa:	32 e0       	ldi	r19, 0x02	; 2
+     6fc:	3a 87       	std	Y+10, r19	; 0x0a
+     6fe:	29 87       	std	Y+9, r18	; 0x09
+     700:	2b ea       	ldi	r18, 0xAB	; 171
+     702:	32 e0       	ldi	r19, 0x02	; 2
+     704:	3c 87       	std	Y+12, r19	; 0x0c
+     706:	2b 87       	std	Y+11, r18	; 0x0b
+     708:	d8 01       	movw	r26, r16
+     70a:	01 90       	ld	r0, Z+
+     70c:	0d 92       	st	X+, r0
+     70e:	8a 95       	dec	r24
+     710:	e1 f7       	brne	.-8      	; 0x70a <AFSK_init+0xfa>
+}
+     712:	2e 96       	adiw	r28, 0x0e	; 14
+     714:	0f b6       	in	r0, 0x3f	; 63
+     716:	f8 94       	cli
+     718:	de bf       	out	0x3e, r29	; 62
+     71a:	0f be       	out	0x3f, r0	; 63
+     71c:	cd bf       	out	0x3d, r28	; 61
+     71e:	df 91       	pop	r29
+     720:	cf 91       	pop	r28
+     722:	1f 91       	pop	r17
+     724:	0f 91       	pop	r16
+     726:	08 95       	ret
+
+00000728 <AFSK_transmit>:
+    } else {
+        return fifo_pop_locked(&AFSK_modem->rxFifo);
+    }
+}
+
+void AFSK_transmit(char *buffer, size_t size) {
+     728:	0f 93       	push	r16
+     72a:	1f 93       	push	r17
+     72c:	cf 93       	push	r28
+     72e:	df 93       	push	r29
+    fifo_flush(&AFSK_modem->txFifo);
+     730:	e0 91 2c 08 	lds	r30, 0x082C	; 0x80082c <AFSK_modem>
+     734:	f0 91 2d 08 	lds	r31, 0x082D	; 0x80082d <AFSK_modem+0x1>
+    return *(f->head++);
+  }
+}
+
+inline void fifo_flush(FIFOBuffer *f) {
+  f->head = f->tail;
+     738:	25 a1       	ldd	r18, Z+37	; 0x25
+     73a:	36 a1       	ldd	r19, Z+38	; 0x26
+     73c:	34 a3       	std	Z+36, r19	; 0x24
+     73e:	23 a3       	std	Z+35, r18	; 0x23
+     740:	ec 01       	movw	r28, r24
+     742:	8c 01       	movw	r16, r24
+     744:	06 0f       	add	r16, r22
+     746:	17 1f       	adc	r17, r23
+    int i = 0;
+    while (size--) {
+     748:	c0 17       	cp	r28, r16
+     74a:	d1 07       	cpc	r29, r17
+     74c:	21 f0       	breq	.+8      	; 0x756 <AFSK_transmit+0x2e>
+        afsk_putchar(buffer[i++]);
+     74e:	89 91       	ld	r24, Y+
+     750:	0e 94 17 02 	call	0x42e	; 0x42e <afsk_putchar>
+     754:	f9 cf       	rjmp	.-14     	; 0x748 <AFSK_transmit+0x20>
+    }
+}
+     756:	df 91       	pop	r29
+     758:	cf 91       	pop	r28
+     75a:	1f 91       	pop	r17
+     75c:	0f 91       	pop	r16
+     75e:	08 95       	ret
+
+00000760 <AFSK_dac_isr>:
+
+uint8_t AFSK_dac_isr(Afsk *afsk) {
+     760:	dc 01       	movw	r26, r24
+    if (afsk->sampleIndex == 0) {
+     762:	56 96       	adiw	r26, 0x16	; 22
+     764:	8c 91       	ld	r24, X
+     766:	56 97       	sbiw	r26, 0x16	; 22
+     768:	81 11       	cpse	r24, r1
+     76a:	ec c0       	rjmp	.+472    	; 0x944 <__stack+0x45>
+        if (afsk->txBit == 0) {
+     76c:	58 96       	adiw	r26, 0x18	; 24
+     76e:	8c 91       	ld	r24, X
+     770:	58 97       	sbiw	r26, 0x18	; 24
+     772:	81 11       	cpse	r24, r1
+     774:	a2 c0       	rjmp	.+324    	; 0x8ba <AFSK_dac_isr+0x15a>
+  unsigned char * volatile head;
+  unsigned char * volatile tail;
+} FIFOBuffer;
+
+inline bool fifo_isempty(const FIFOBuffer *f) {
+  return f->head == f->tail;
+     776:	93 96       	adiw	r26, 0x23	; 35
+     778:	4d 91       	ld	r20, X+
+     77a:	5c 91       	ld	r21, X
+     77c:	94 97       	sbiw	r26, 0x24	; 36
+     77e:	95 96       	adiw	r26, 0x25	; 37
+     780:	2d 91       	ld	r18, X+
+     782:	3c 91       	ld	r19, X
+     784:	96 97       	sbiw	r26, 0x26	; 38
+            if (fifo_isempty(&afsk->txFifo) && afsk->tailLength == 0) {
+     786:	42 17       	cp	r20, r18
+     788:	53 07       	cpc	r21, r19
+     78a:	39 f4       	brne	.+14     	; 0x79a <AFSK_dac_isr+0x3a>
+     78c:	54 96       	adiw	r26, 0x14	; 20
+     78e:	2d 91       	ld	r18, X+
+     790:	3c 91       	ld	r19, X
+     792:	55 97       	sbiw	r26, 0x15	; 21
+     794:	23 2b       	or	r18, r19
+     796:	09 f4       	brne	.+2      	; 0x79a <AFSK_dac_isr+0x3a>
+     798:	60 c0       	rjmp	.+192    	; 0x85a <AFSK_dac_isr+0xfa>
+                AFSK_DAC_IRQ_STOP();
+                afsk->sending = false;
+                LED_TX_OFF();
+                return 0;
+            } else {
+                if (!afsk->bitStuff) afsk->bitstuffCount = 0;
+     79a:	59 96       	adiw	r26, 0x19	; 25
+     79c:	9c 91       	ld	r25, X
+     79e:	59 97       	sbiw	r26, 0x19	; 25
+     7a0:	91 11       	cpse	r25, r1
+     7a2:	03 c0       	rjmp	.+6      	; 0x7aa <AFSK_dac_isr+0x4a>
+     7a4:	5a 96       	adiw	r26, 0x1a	; 26
+     7a6:	1c 92       	st	X, r1
+     7a8:	5a 97       	sbiw	r26, 0x1a	; 26
+                afsk->bitStuff = true;
+     7aa:	91 e0       	ldi	r25, 0x01	; 1
+     7ac:	59 96       	adiw	r26, 0x19	; 25
+     7ae:	9c 93       	st	X, r25
+     7b0:	59 97       	sbiw	r26, 0x19	; 25
+                if (afsk->preambleLength == 0) {
+     7b2:	52 96       	adiw	r26, 0x12	; 18
+     7b4:	2d 91       	ld	r18, X+
+     7b6:	3c 91       	ld	r19, X
+     7b8:	53 97       	sbiw	r26, 0x13	; 19
+     7ba:	21 15       	cp	r18, r1
+     7bc:	31 05       	cpc	r19, r1
+     7be:	99 f5       	brne	.+102    	; 0x826 <AFSK_dac_isr+0xc6>
+     7c0:	93 96       	adiw	r26, 0x23	; 35
+     7c2:	4d 91       	ld	r20, X+
+     7c4:	5c 91       	ld	r21, X
+     7c6:	94 97       	sbiw	r26, 0x24	; 36
+     7c8:	95 96       	adiw	r26, 0x25	; 37
+     7ca:	2d 91       	ld	r18, X+
+     7cc:	3c 91       	ld	r19, X
+     7ce:	96 97       	sbiw	r26, 0x26	; 38
+                    if (fifo_isempty(&afsk->txFifo)) {
+     7d0:	42 17       	cp	r20, r18
+     7d2:	53 07       	cpc	r21, r19
+     7d4:	59 f4       	brne	.+22     	; 0x7ec <AFSK_dac_isr+0x8c>
+                        afsk->tailLength--;
+     7d6:	54 96       	adiw	r26, 0x14	; 20
+     7d8:	2d 91       	ld	r18, X+
+     7da:	3c 91       	ld	r19, X
+     7dc:	55 97       	sbiw	r26, 0x15	; 21
+     7de:	21 50       	subi	r18, 0x01	; 1
+     7e0:	31 09       	sbc	r19, r1
+     7e2:	55 96       	adiw	r26, 0x15	; 21
+     7e4:	3c 93       	st	X, r19
+     7e6:	2e 93       	st	-X, r18
+     7e8:	54 97       	sbiw	r26, 0x14	; 20
+     7ea:	23 c0       	rjmp	.+70     	; 0x832 <AFSK_dac_isr+0xd2>
+    f->tail++;
+  }
+}
+
+inline unsigned char fifo_pop(FIFOBuffer *f) {
+  if(f->head == f->end) {
+     7ec:	93 96       	adiw	r26, 0x23	; 35
+     7ee:	ed 91       	ld	r30, X+
+     7f0:	fc 91       	ld	r31, X
+     7f2:	94 97       	sbiw	r26, 0x24	; 36
+     7f4:	91 96       	adiw	r26, 0x21	; 33
+     7f6:	2d 91       	ld	r18, X+
+     7f8:	3c 91       	ld	r19, X
+     7fa:	92 97       	sbiw	r26, 0x22	; 34
+     7fc:	e2 17       	cp	r30, r18
+     7fe:	f3 07       	cpc	r31, r19
+     800:	29 f4       	brne	.+10     	; 0x80c <AFSK_dac_isr+0xac>
+    f->head = f->begin;
+     802:	5f 96       	adiw	r26, 0x1f	; 31
+     804:	2d 91       	ld	r18, X+
+     806:	3c 91       	ld	r19, X
+     808:	90 97       	sbiw	r26, 0x20	; 32
+     80a:	07 c0       	rjmp	.+14     	; 0x81a <AFSK_dac_isr+0xba>
+    return *(f->end);
+  } else {
+    return *(f->head++);
+     80c:	93 96       	adiw	r26, 0x23	; 35
+     80e:	ed 91       	ld	r30, X+
+     810:	fc 91       	ld	r31, X
+     812:	94 97       	sbiw	r26, 0x24	; 36
+     814:	9f 01       	movw	r18, r30
+     816:	2f 5f       	subi	r18, 0xFF	; 255
+     818:	3f 4f       	sbci	r19, 0xFF	; 255
+     81a:	94 96       	adiw	r26, 0x24	; 36
+     81c:	3c 93       	st	X, r19
+     81e:	2e 93       	st	-X, r18
+     820:	93 97       	sbiw	r26, 0x23	; 35
+     822:	90 81       	ld	r25, Z
+     824:	07 c0       	rjmp	.+14     	; 0x834 <AFSK_dac_isr+0xd4>
+                        afsk->currentOutputByte = HDLC_FLAG;
+                    } else {
+                        afsk->currentOutputByte = fifo_pop(&afsk->txFifo);
+                    }
+                } else {
+                    afsk->preambleLength--;
+     826:	21 50       	subi	r18, 0x01	; 1
+     828:	31 09       	sbc	r19, r1
+     82a:	53 96       	adiw	r26, 0x13	; 19
+     82c:	3c 93       	st	X, r19
+     82e:	2e 93       	st	-X, r18
+     830:	52 97       	sbiw	r26, 0x12	; 18
+                    afsk->currentOutputByte = HDLC_FLAG;
+     832:	9e e7       	ldi	r25, 0x7E	; 126
+     834:	57 96       	adiw	r26, 0x17	; 23
+     836:	9c 93       	st	X, r25
+     838:	57 97       	sbiw	r26, 0x17	; 23
+                }
+                if (afsk->currentOutputByte == AX25_ESC) {
+     83a:	57 96       	adiw	r26, 0x17	; 23
+     83c:	9c 91       	ld	r25, X
+     83e:	57 97       	sbiw	r26, 0x17	; 23
+     840:	9b 31       	cpi	r25, 0x1B	; 27
+     842:	89 f5       	brne	.+98     	; 0x8a6 <AFSK_dac_isr+0x146>
+  unsigned char * volatile head;
+  unsigned char * volatile tail;
+} FIFOBuffer;
+
+inline bool fifo_isempty(const FIFOBuffer *f) {
+  return f->head == f->tail;
+     844:	93 96       	adiw	r26, 0x23	; 35
+     846:	4d 91       	ld	r20, X+
+     848:	5c 91       	ld	r21, X
+     84a:	94 97       	sbiw	r26, 0x24	; 36
+     84c:	95 96       	adiw	r26, 0x25	; 37
+     84e:	2d 91       	ld	r18, X+
+     850:	3c 91       	ld	r19, X
+     852:	96 97       	sbiw	r26, 0x26	; 38
+                    if (fifo_isempty(&afsk->txFifo)) {
+     854:	42 17       	cp	r20, r18
+     856:	53 07       	cpc	r21, r19
+     858:	39 f4       	brne	.+14     	; 0x868 <AFSK_dac_isr+0x108>
+                        AFSK_DAC_IRQ_STOP();
+     85a:	10 92 13 01 	sts	0x0113, r1	; 0x800113 <hw_afsk_dac_isr>
+                        afsk->sending = false;
+     85e:	a9 59       	subi	r26, 0x99	; 153
+     860:	bf 4f       	sbci	r27, 0xFF	; 255
+     862:	1c 92       	st	X, r1
+                        LED_TX_OFF();
+     864:	29 98       	cbi	0x05, 1	; 5
+                        return 0;
+     866:	08 95       	ret
+    f->tail++;
+  }
+}
+
+inline unsigned char fifo_pop(FIFOBuffer *f) {
+  if(f->head == f->end) {
+     868:	93 96       	adiw	r26, 0x23	; 35
+     86a:	ed 91       	ld	r30, X+
+     86c:	fc 91       	ld	r31, X
+     86e:	94 97       	sbiw	r26, 0x24	; 36
+     870:	91 96       	adiw	r26, 0x21	; 33
+     872:	8d 91       	ld	r24, X+
+     874:	9c 91       	ld	r25, X
+     876:	92 97       	sbiw	r26, 0x22	; 34
+     878:	e8 17       	cp	r30, r24
+     87a:	f9 07       	cpc	r31, r25
+     87c:	29 f4       	brne	.+10     	; 0x888 <AFSK_dac_isr+0x128>
+    f->head = f->begin;
+     87e:	5f 96       	adiw	r26, 0x1f	; 31
+     880:	8d 91       	ld	r24, X+
+     882:	9c 91       	ld	r25, X
+     884:	90 97       	sbiw	r26, 0x20	; 32
+     886:	06 c0       	rjmp	.+12     	; 0x894 <AFSK_dac_isr+0x134>
+    return *(f->end);
+  } else {
+    return *(f->head++);
+     888:	93 96       	adiw	r26, 0x23	; 35
+     88a:	ed 91       	ld	r30, X+
+     88c:	fc 91       	ld	r31, X
+     88e:	94 97       	sbiw	r26, 0x24	; 36
+     890:	cf 01       	movw	r24, r30
+     892:	01 96       	adiw	r24, 0x01	; 1
+     894:	94 96       	adiw	r26, 0x24	; 36
+     896:	9c 93       	st	X, r25
+     898:	8e 93       	st	-X, r24
+     89a:	93 97       	sbiw	r26, 0x23	; 35
+     89c:	80 81       	ld	r24, Z
+                    } else {
+                        afsk->currentOutputByte = fifo_pop(&afsk->txFifo);
+     89e:	57 96       	adiw	r26, 0x17	; 23
+     8a0:	8c 93       	st	X, r24
+     8a2:	57 97       	sbiw	r26, 0x17	; 23
+     8a4:	06 c0       	rjmp	.+12     	; 0x8b2 <AFSK_dac_isr+0x152>
+                    }
+                } else if (afsk->currentOutputByte == HDLC_FLAG || afsk->currentOutputByte == HDLC_RESET) {
+     8a6:	9e 57       	subi	r25, 0x7E	; 126
+     8a8:	92 30       	cpi	r25, 0x02	; 2
+     8aa:	18 f4       	brcc	.+6      	; 0x8b2 <AFSK_dac_isr+0x152>
+                    afsk->bitStuff = false;
+     8ac:	59 96       	adiw	r26, 0x19	; 25
+     8ae:	1c 92       	st	X, r1
+     8b0:	59 97       	sbiw	r26, 0x19	; 25
+                }
+            }
+            afsk->txBit = 0x01;
+     8b2:	81 e0       	ldi	r24, 0x01	; 1
+     8b4:	58 96       	adiw	r26, 0x18	; 24
+     8b6:	8c 93       	st	X, r24
+     8b8:	58 97       	sbiw	r26, 0x18	; 24
+        }
+
+        if (afsk->bitStuff && afsk->bitstuffCount >= BIT_STUFF_LEN) {
+     8ba:	59 96       	adiw	r26, 0x19	; 25
+     8bc:	8c 91       	ld	r24, X
+     8be:	59 97       	sbiw	r26, 0x19	; 25
+     8c0:	5d 96       	adiw	r26, 0x1d	; 29
+     8c2:	2d 91       	ld	r18, X+
+     8c4:	3c 91       	ld	r19, X
+     8c6:	5e 97       	sbiw	r26, 0x1e	; 30
+     8c8:	88 23       	and	r24, r24
+     8ca:	a9 f0       	breq	.+42     	; 0x8f6 <AFSK_dac_isr+0x196>
+     8cc:	5a 96       	adiw	r26, 0x1a	; 26
+     8ce:	8c 91       	ld	r24, X
+     8d0:	5a 97       	sbiw	r26, 0x1a	; 26
+     8d2:	85 30       	cpi	r24, 0x05	; 5
+     8d4:	80 f0       	brcs	.+32     	; 0x8f6 <AFSK_dac_isr+0x196>
+            afsk->bitstuffCount = 0;
+     8d6:	5a 96       	adiw	r26, 0x1a	; 26
+     8d8:	1c 92       	st	X, r1
+     8da:	5a 97       	sbiw	r26, 0x1a	; 26
+            afsk->phaseInc = SWITCH_TONE(afsk->phaseInc);
+     8dc:	20 34       	cpi	r18, 0x40	; 64
+     8de:	31 05       	cpc	r19, r1
+     8e0:	19 f0       	breq	.+6      	; 0x8e8 <AFSK_dac_isr+0x188>
+     8e2:	80 e4       	ldi	r24, 0x40	; 64
+     8e4:	90 e0       	ldi	r25, 0x00	; 0
+     8e6:	02 c0       	rjmp	.+4      	; 0x8ec <AFSK_dac_isr+0x18c>
+     8e8:	85 e7       	ldi	r24, 0x75	; 117
+     8ea:	90 e0       	ldi	r25, 0x00	; 0
+     8ec:	5e 96       	adiw	r26, 0x1e	; 30
+     8ee:	9c 93       	st	X, r25
+     8f0:	8e 93       	st	-X, r24
+     8f2:	5d 97       	sbiw	r26, 0x1d	; 29
+     8f4:	23 c0       	rjmp	.+70     	; 0x93c <__stack+0x3d>
+        } else {
+            if (afsk->currentOutputByte & afsk->txBit) {
+     8f6:	58 96       	adiw	r26, 0x18	; 24
+     8f8:	8c 91       	ld	r24, X
+     8fa:	58 97       	sbiw	r26, 0x18	; 24
+     8fc:	57 96       	adiw	r26, 0x17	; 23
+     8fe:	9c 91       	ld	r25, X
+     900:	57 97       	sbiw	r26, 0x17	; 23
+     902:	98 23       	and	r25, r24
+     904:	41 f0       	breq	.+16     	; 0x916 <__stack+0x17>
+                afsk->bitstuffCount++;
+     906:	5a 96       	adiw	r26, 0x1a	; 26
+     908:	9c 91       	ld	r25, X
+     90a:	5a 97       	sbiw	r26, 0x1a	; 26
+     90c:	9f 5f       	subi	r25, 0xFF	; 255
+     90e:	5a 96       	adiw	r26, 0x1a	; 26
+     910:	9c 93       	st	X, r25
+     912:	5a 97       	sbiw	r26, 0x1a	; 26
+     914:	0f c0       	rjmp	.+30     	; 0x934 <__stack+0x35>
+            } else {
+                afsk->bitstuffCount = 0;
+     916:	5a 96       	adiw	r26, 0x1a	; 26
+     918:	1c 92       	st	X, r1
+     91a:	5a 97       	sbiw	r26, 0x1a	; 26
+                afsk->phaseInc = SWITCH_TONE(afsk->phaseInc);
+     91c:	20 34       	cpi	r18, 0x40	; 64
+     91e:	31 05       	cpc	r19, r1
+     920:	19 f0       	breq	.+6      	; 0x928 <__stack+0x29>
+     922:	20 e4       	ldi	r18, 0x40	; 64
+     924:	30 e0       	ldi	r19, 0x00	; 0
+     926:	02 c0       	rjmp	.+4      	; 0x92c <__stack+0x2d>
+     928:	25 e7       	ldi	r18, 0x75	; 117
+     92a:	30 e0       	ldi	r19, 0x00	; 0
+     92c:	5e 96       	adiw	r26, 0x1e	; 30
+     92e:	3c 93       	st	X, r19
+     930:	2e 93       	st	-X, r18
+     932:	5d 97       	sbiw	r26, 0x1d	; 29
+            }
+            afsk->txBit <<= 1;
+     934:	88 0f       	add	r24, r24
+     936:	58 96       	adiw	r26, 0x18	; 24
+     938:	8c 93       	st	X, r24
+     93a:	58 97       	sbiw	r26, 0x18	; 24
+        }
+
+        afsk->sampleIndex = SAMPLESPERBIT;
+     93c:	88 e0       	ldi	r24, 0x08	; 8
+     93e:	56 96       	adiw	r26, 0x16	; 22
+     940:	8c 93       	st	X, r24
+     942:	56 97       	sbiw	r26, 0x16	; 22
+    }
+
+    afsk->phaseAcc += afsk->phaseInc;
+     944:	5d 96       	adiw	r26, 0x1d	; 29
+     946:	ed 91       	ld	r30, X+
+     948:	fc 91       	ld	r31, X
+     94a:	5e 97       	sbiw	r26, 0x1e	; 30
+     94c:	5b 96       	adiw	r26, 0x1b	; 27
+     94e:	8d 91       	ld	r24, X+
+     950:	9c 91       	ld	r25, X
+     952:	5c 97       	sbiw	r26, 0x1c	; 28
+     954:	e8 0f       	add	r30, r24
+     956:	f9 1f       	adc	r31, r25
+    afsk->phaseAcc %= SIN_LEN;
+     958:	9f 01       	movw	r18, r30
+     95a:	31 70       	andi	r19, 0x01	; 1
+     95c:	5c 96       	adiw	r26, 0x1c	; 28
+     95e:	3c 93       	st	X, r19
+     960:	2e 93       	st	-X, r18
+     962:	5b 97       	sbiw	r26, 0x1b	; 27
+    afsk->sampleIndex--;
+     964:	56 96       	adiw	r26, 0x16	; 22
+     966:	8c 91       	ld	r24, X
+     968:	56 97       	sbiw	r26, 0x16	; 22
+     96a:	81 50       	subi	r24, 0x01	; 1
+     96c:	56 96       	adiw	r26, 0x16	; 22
+     96e:	8c 93       	st	X, r24
+    245, 246, 246, 247, 248, 248, 249, 249, 250, 250, 250, 251, 251, 252, 252, 252,
+    253, 253, 253, 253, 254, 254, 254, 254, 254, 255, 255, 255, 255, 255, 255, 255,
+};
+
+inline static uint8_t sinSample(uint16_t i) {
+    uint16_t newI = i % (SIN_LEN/2);
+     970:	ff 27       	eor	r31, r31
+    newI = (newI >= (SIN_LEN/4)) ? (SIN_LEN/2 - newI -1) : newI;
+     972:	e0 38       	cpi	r30, 0x80	; 128
+     974:	f1 05       	cpc	r31, r1
+     976:	30 f0       	brcs	.+12     	; 0x984 <__stack+0x85>
+     978:	8f ef       	ldi	r24, 0xFF	; 255
+     97a:	90 e0       	ldi	r25, 0x00	; 0
+     97c:	ac 01       	movw	r20, r24
+     97e:	4e 1b       	sub	r20, r30
+     980:	5f 0b       	sbc	r21, r31
+     982:	fa 01       	movw	r30, r20
+    uint8_t sine = pgm_read_byte(&sin_table[newI]);
+     984:	e8 59       	subi	r30, 0x98	; 152
+     986:	ff 4f       	sbci	r31, 0xFF	; 255
+     988:	84 91       	lpm	r24, Z
+    return (i >= (SIN_LEN/2)) ? (255 - sine) : sine;
+     98a:	2f 3f       	cpi	r18, 0xFF	; 255
+     98c:	31 05       	cpc	r19, r1
+     98e:	11 f0       	breq	.+4      	; 0x994 <__stack+0x95>
+     990:	08 f0       	brcs	.+2      	; 0x994 <__stack+0x95>
+     992:	80 95       	com	r24
+
+    return sinSample(afsk->phaseAcc);
+}
+     994:	08 95       	ret
+
+00000996 <AFSK_adc_isr>:
+    //digitalWrite(13, LOW);
+    return ret;
+}
+
+
+void AFSK_adc_isr(Afsk *afsk, int8_t currentSample) {
+     996:	ef 92       	push	r14
+     998:	ff 92       	push	r15
+     99a:	0f 93       	push	r16
+     99c:	1f 93       	push	r17
+     99e:	cf 93       	push	r28
+     9a0:	df 93       	push	r29
+     9a2:	fc 01       	movw	r30, r24
+    // a sample delayed by (samples per bit / 2).
+    // We then lowpass-filter the samples with a
+    // Chebyshev filter. The lowpass filtering serves
+    // to "smooth out" the variations in the samples.
+
+    afsk->iirX[0] = afsk->iirX[1];
+     9a4:	8c 01       	movw	r16, r24
+     9a6:	01 54       	subi	r16, 0x41	; 65
+     9a8:	1f 4f       	sbci	r17, 0xFF	; 255
+     9aa:	d8 01       	movw	r26, r16
+     9ac:	4d 91       	ld	r20, X+
+     9ae:	5c 91       	ld	r21, X
+     9b0:	11 97       	sbiw	r26, 0x01	; 1
+     9b2:	12 97       	sbiw	r26, 0x02	; 2
+     9b4:	11 96       	adiw	r26, 0x01	; 1
+     9b6:	5c 93       	st	X, r21
+     9b8:	4e 93       	st	-X, r20
+    f->tail++;
+  }
+}
+
+inline unsigned char fifo_pop(FIFOBuffer *f) {
+  if(f->head == f->end) {
+     9ba:	a5 55       	subi	r26, 0x55	; 85
+     9bc:	b1 09       	sbc	r27, r1
+     9be:	14 96       	adiw	r26, 0x04	; 4
+     9c0:	8d 91       	ld	r24, X+
+     9c2:	9c 91       	ld	r25, X
+     9c4:	15 97       	sbiw	r26, 0x05	; 5
+     9c6:	12 96       	adiw	r26, 0x02	; 2
+     9c8:	2d 91       	ld	r18, X+
+     9ca:	3c 91       	ld	r19, X
+     9cc:	13 97       	sbiw	r26, 0x03	; 3
+     9ce:	82 17       	cp	r24, r18
+     9d0:	93 07       	cpc	r25, r19
+     9d2:	21 f4       	brne	.+8      	; 0x9dc <AFSK_adc_isr+0x46>
+    f->head = f->begin;
+     9d4:	2d 91       	ld	r18, X+
+     9d6:	3c 91       	ld	r19, X
+     9d8:	11 97       	sbiw	r26, 0x01	; 1
+     9da:	07 c0       	rjmp	.+14     	; 0x9ea <AFSK_adc_isr+0x54>
+    return *(f->end);
+  } else {
+    return *(f->head++);
+     9dc:	14 96       	adiw	r26, 0x04	; 4
+     9de:	8d 91       	ld	r24, X+
+     9e0:	9c 91       	ld	r25, X
+     9e2:	15 97       	sbiw	r26, 0x05	; 5
+     9e4:	9c 01       	movw	r18, r24
+     9e6:	2f 5f       	subi	r18, 0xFF	; 255
+     9e8:	3f 4f       	sbci	r19, 0xFF	; 255
+     9ea:	15 96       	adiw	r26, 0x05	; 5
+     9ec:	3c 93       	st	X, r19
+     9ee:	2e 93       	st	-X, r18
+     9f0:	14 97       	sbiw	r26, 0x04	; 4
+     9f2:	ec 01       	movw	r28, r24
+     9f4:	28 81       	ld	r18, Y
+
+    #if FILTER_CUTOFF == 600
+        afsk->iirX[1] = ((int8_t)fifo_pop(&afsk->delayFifo) * currentSample) >> 2;
+     9f6:	26 02       	muls	r18, r22
+     9f8:	90 01       	movw	r18, r0
+     9fa:	11 24       	eor	r1, r1
+     9fc:	c9 01       	movw	r24, r18
+     9fe:	95 95       	asr	r25
+     a00:	87 95       	ror	r24
+     a02:	95 95       	asr	r25
+     a04:	87 95       	ror	r24
+     a06:	e8 01       	movw	r28, r16
+     a08:	99 83       	std	Y+1, r25	; 0x01
+     a0a:	88 83       	st	Y, r24
+        // afsk->iirX[1] = ((int8_t)fifo_pop(&afsk->delayFifo) * currentSample) / 1.881349100;
+    #else
+        #error Unsupported filter cutoff!
+    #endif
+
+    afsk->iirY[0] = afsk->iirY[1];
+     a0c:	7f 01       	movw	r14, r30
+     a0e:	d3 ec       	ldi	r29, 0xC3	; 195
+     a10:	ed 0e       	add	r14, r29
+     a12:	f1 1c       	adc	r15, r1
+     a14:	e7 01       	movw	r28, r14
+     a16:	28 81       	ld	r18, Y
+     a18:	39 81       	ldd	r19, Y+1	; 0x01
+     a1a:	8f 01       	movw	r16, r30
+     a1c:	0f 53       	subi	r16, 0x3F	; 63
+     a1e:	1f 4f       	sbci	r17, 0xFF	; 255
+     a20:	e8 01       	movw	r28, r16
+     a22:	39 83       	std	Y+1, r19	; 0x01
+     a24:	28 83       	st	Y, r18
+    
+    #if FILTER_CUTOFF == 600
+        afsk->iirY[1] = afsk->iirX[0] + afsk->iirX[1] + (afsk->iirY[0] >> 1);
+     a26:	84 0f       	add	r24, r20
+     a28:	95 1f       	adc	r25, r21
+     a2a:	35 95       	asr	r19
+     a2c:	27 95       	ror	r18
+     a2e:	82 0f       	add	r24, r18
+     a30:	93 1f       	adc	r25, r19
+     a32:	e7 01       	movw	r28, r14
+     a34:	99 83       	std	Y+1, r25	; 0x01
+     a36:	88 83       	st	Y, r24
+
+    // We put the sampled bit in a delay-line:
+    // First we bitshift everything 1 left
+    afsk->sampledBits <<= 1;
+    // And then add the sampled bit to our delay line
+    afsk->sampledBits |= (afsk->iirY[1] > 0) ? 0 : 1;
+     a38:	af 01       	movw	r20, r30
+     a3a:	4b 53       	subi	r20, 0x3B	; 59
+     a3c:	5f 4f       	sbci	r21, 0xFF	; 255
+     a3e:	21 e0       	ldi	r18, 0x01	; 1
+     a40:	18 16       	cp	r1, r24
+     a42:	19 06       	cpc	r1, r25
+     a44:	0c f4       	brge	.+2      	; 0xa48 <AFSK_adc_isr+0xb2>
+     a46:	20 e0       	ldi	r18, 0x00	; 0
+    #endif
+
+
+    // We put the sampled bit in a delay-line:
+    // First we bitshift everything 1 left
+    afsk->sampledBits <<= 1;
+     a48:	ea 01       	movw	r28, r20
+     a4a:	88 81       	ld	r24, Y
+     a4c:	88 0f       	add	r24, r24
+    // And then add the sampled bit to our delay line
+    afsk->sampledBits |= (afsk->iirY[1] > 0) ? 0 : 1;
+     a4e:	82 2b       	or	r24, r18
+     a50:	88 83       	st	Y, r24
+inline bool fifo_isfull(const FIFOBuffer *f) {
+  return ((f->head == f->begin) && (f->tail == f->end)) || (f->tail == f->head - 1);
+}
+
+inline void fifo_push(FIFOBuffer *f, unsigned char c) {
+  *(f->tail) = c;
+     a52:	16 96       	adiw	r26, 0x06	; 6
+     a54:	8d 91       	ld	r24, X+
+     a56:	9c 91       	ld	r25, X
+     a58:	17 97       	sbiw	r26, 0x07	; 7
+     a5a:	ec 01       	movw	r28, r24
+     a5c:	68 83       	st	Y, r22
+  
+  if (f->tail == f->end) {
+     a5e:	16 96       	adiw	r26, 0x06	; 6
+     a60:	2d 91       	ld	r18, X+
+     a62:	3c 91       	ld	r19, X
+     a64:	17 97       	sbiw	r26, 0x07	; 7
+     a66:	12 96       	adiw	r26, 0x02	; 2
+     a68:	8d 91       	ld	r24, X+
+     a6a:	9c 91       	ld	r25, X
+     a6c:	13 97       	sbiw	r26, 0x03	; 3
+     a6e:	28 17       	cp	r18, r24
+     a70:	39 07       	cpc	r19, r25
+     a72:	21 f4       	brne	.+8      	; 0xa7c <AFSK_adc_isr+0xe6>
+    f->tail = f->begin;
+     a74:	8d 91       	ld	r24, X+
+     a76:	9c 91       	ld	r25, X
+     a78:	11 97       	sbiw	r26, 0x01	; 1
+     a7a:	05 c0       	rjmp	.+10     	; 0xa86 <AFSK_adc_isr+0xf0>
+  } else {
+    f->tail++;
+     a7c:	16 96       	adiw	r26, 0x06	; 6
+     a7e:	8d 91       	ld	r24, X+
+     a80:	9c 91       	ld	r25, X
+     a82:	17 97       	sbiw	r26, 0x07	; 7
+     a84:	01 96       	adiw	r24, 0x01	; 1
+     a86:	17 96       	adiw	r26, 0x07	; 7
+     a88:	9c 93       	st	X, r25
+     a8a:	8e 93       	st	-X, r24
+     a8c:	16 97       	sbiw	r26, 0x06	; 6
+    // than half of PHASE_MAX, we move it forward a little.
+    // This way, our "window" is constantly seeking to position
+    // it's center at the bit transitions. Thus, we synchronise
+    // our timing to the transmitter, even if it's timing is
+    // a little off compared to our own.
+    if (SIGNAL_TRANSITIONED(afsk->sampledBits)) {
+     a8e:	da 01       	movw	r26, r20
+     a90:	9c 91       	ld	r25, X
+     a92:	89 2f       	mov	r24, r25
+     a94:	86 95       	lsr	r24
+     a96:	86 95       	lsr	r24
+     a98:	89 27       	eor	r24, r25
+     a9a:	83 70       	andi	r24, 0x03	; 3
+     a9c:	df 01       	movw	r26, r30
+     a9e:	aa 53       	subi	r26, 0x3A	; 58
+     aa0:	bf 4f       	sbci	r27, 0xFF	; 255
+     aa2:	83 30       	cpi	r24, 0x03	; 3
+     aa4:	39 f4       	brne	.+14     	; 0xab4 <AFSK_adc_isr+0x11e>
+        if (afsk->currentPhase < PHASE_THRESHOLD) {
+     aa6:	8c 91       	ld	r24, X
+     aa8:	80 32       	cpi	r24, 0x20	; 32
+     aaa:	14 f4       	brge	.+4      	; 0xab0 <AFSK_adc_isr+0x11a>
+            afsk->currentPhase += PHASE_INC;
+     aac:	8f 5f       	subi	r24, 0xFF	; 255
+     aae:	01 c0       	rjmp	.+2      	; 0xab2 <AFSK_adc_isr+0x11c>
+        } else {
+            afsk->currentPhase -= PHASE_INC;
+     ab0:	81 50       	subi	r24, 0x01	; 1
+     ab2:	8c 93       	st	X, r24
+        }
+    }
+
+    // We increment our phase counter
+    afsk->currentPhase += PHASE_BITS;
+     ab4:	8c 91       	ld	r24, X
+     ab6:	88 5f       	subi	r24, 0xF8	; 248
+
+    // Check if we have reached the end of
+    // our sampling window.
+    if (afsk->currentPhase >= PHASE_MAX) {
+     ab8:	80 34       	cpi	r24, 0x40	; 64
+     aba:	14 f4       	brge	.+4      	; 0xac0 <AFSK_adc_isr+0x12a>
+            afsk->currentPhase -= PHASE_INC;
+        }
+    }
+
+    // We increment our phase counter
+    afsk->currentPhase += PHASE_BITS;
+     abc:	8c 93       	st	X, r24
+     abe:	46 c1       	rjmp	.+652    	; 0xd4c <AFSK_adc_isr+0x3b6>
+    // Check if we have reached the end of
+    // our sampling window.
+    if (afsk->currentPhase >= PHASE_MAX) {
+        // If we have, wrap around our phase
+        // counter by modulus
+        afsk->currentPhase %= PHASE_MAX;
+     ac0:	8f 73       	andi	r24, 0x3F	; 63
+     ac2:	8c 93       	st	X, r24
+
+        // Bitshift to make room for the next
+        // bit in our stream of demodulated bits
+        afsk->actualBits <<= 1;
+     ac4:	df 01       	movw	r26, r30
+     ac6:	a9 53       	subi	r26, 0x39	; 57
+     ac8:	bf 4f       	sbci	r27, 0xFF	; 255
+     aca:	8c 91       	ld	r24, X
+     acc:	88 0f       	add	r24, r24
+
+        // We determine the actual bit value by reading
+        // the last 3 sampled bits. If there is three or
+        // more 1's, we will assume that the transmitter
+        // sent us a one, otherwise we assume a zero
+        uint8_t bits = afsk->sampledBits & 0x07;
+     ace:	97 70       	andi	r25, 0x07	; 7
+        if (bits == 0x07 || // 111
+            bits == 0x06 || // 110
+     ad0:	2b ef       	ldi	r18, 0xFB	; 251
+     ad2:	29 0f       	add	r18, r25
+        // We determine the actual bit value by reading
+        // the last 3 sampled bits. If there is three or
+        // more 1's, we will assume that the transmitter
+        // sent us a one, otherwise we assume a zero
+        uint8_t bits = afsk->sampledBits & 0x07;
+        if (bits == 0x07 || // 111
+     ad4:	23 30       	cpi	r18, 0x03	; 3
+     ad6:	10 f0       	brcs	.+4      	; 0xadc <AFSK_adc_isr+0x146>
+            bits == 0x06 || // 110
+            bits == 0x05 || // 101
+     ad8:	93 30       	cpi	r25, 0x03	; 3
+     ada:	09 f4       	brne	.+2      	; 0xade <AFSK_adc_isr+0x148>
+            bits == 0x03    // 011
+            ) {
+            afsk->actualBits |= 1;
+     adc:	81 60       	ori	r24, 0x01	; 1
+     ade:	8c 93       	st	X, r24
+        // that we can use to synchronize our phase.
+        //
+        // We also check the return of the Link Control parser
+        // to check if an error occured.
+
+        if (!hdlcParse(&afsk->hdlc, !TRANSITION_FOUND(afsk->actualBits), &afsk->rxFifo)) {
+     ae0:	8c 91       	ld	r24, X
+     ae2:	98 2f       	mov	r25, r24
+     ae4:	96 95       	lsr	r25
+     ae6:	89 27       	eor	r24, r25
+     ae8:	80 95       	com	r24
+     aea:	81 70       	andi	r24, 0x01	; 1
+    bool ret = true;
+
+    // Bitshift our byte of demodulated bits to
+    // the left by one bit, to make room for the
+    // next incoming bit
+    hdlc->demodulatedBits <<= 1;
+     aec:	96 85       	ldd	r25, Z+14	; 0x0e
+     aee:	99 0f       	add	r25, r25
+    // And then put the newest bit from the 
+    // demodulator into the byte.
+    hdlc->demodulatedBits |= bit ? 1 : 0;
+     af0:	89 2b       	or	r24, r25
+     af2:	86 87       	std	Z+14, r24	; 0x0e
+
+    // Now we'll look at the last 8 received bits, and
+    // check if we have received a HDLC flag (01111110)
+    if (hdlc->demodulatedBits == HDLC_FLAG) {
+     af4:	8e 37       	cpi	r24, 0x7E	; 126
+     af6:	09 f0       	breq	.+2      	; 0xafa <AFSK_adc_isr+0x164>
+     af8:	48 c0       	rjmp	.+144    	; 0xb8a <AFSK_adc_isr+0x1f4>
+inline bool fifo_isempty(const FIFOBuffer *f) {
+  return f->head == f->tail;
+}
+
+inline bool fifo_isfull(const FIFOBuffer *f) {
+  return ((f->head == f->begin) && (f->tail == f->end)) || (f->tail == f->head - 1);
+     afa:	df 01       	movw	r26, r30
+     afc:	ab 58       	subi	r26, 0x8B	; 139
+     afe:	bf 4f       	sbci	r27, 0xFF	; 255
+     b00:	14 96       	adiw	r26, 0x04	; 4
+     b02:	2d 91       	ld	r18, X+
+     b04:	3c 91       	ld	r19, X
+     b06:	15 97       	sbiw	r26, 0x05	; 5
+     b08:	8d 91       	ld	r24, X+
+     b0a:	9c 91       	ld	r25, X
+     b0c:	11 97       	sbiw	r26, 0x01	; 1
+     b0e:	28 17       	cp	r18, r24
+     b10:	39 07       	cpc	r19, r25
+     b12:	61 f4       	brne	.+24     	; 0xb2c <AFSK_adc_isr+0x196>
+     b14:	16 96       	adiw	r26, 0x06	; 6
+     b16:	2d 91       	ld	r18, X+
+     b18:	3c 91       	ld	r19, X
+     b1a:	17 97       	sbiw	r26, 0x07	; 7
+     b1c:	12 96       	adiw	r26, 0x02	; 2
+     b1e:	8d 91       	ld	r24, X+
+     b20:	9c 91       	ld	r25, X
+     b22:	13 97       	sbiw	r26, 0x03	; 3
+     b24:	28 17       	cp	r18, r24
+     b26:	39 07       	cpc	r19, r25
+     b28:	09 f4       	brne	.+2      	; 0xb2c <AFSK_adc_isr+0x196>
+     b2a:	dc c0       	rjmp	.+440    	; 0xce4 <AFSK_adc_isr+0x34e>
+     b2c:	16 96       	adiw	r26, 0x06	; 6
+     b2e:	2d 91       	ld	r18, X+
+     b30:	3c 91       	ld	r19, X
+     b32:	17 97       	sbiw	r26, 0x07	; 7
+     b34:	14 96       	adiw	r26, 0x04	; 4
+     b36:	8d 91       	ld	r24, X+
+     b38:	9c 91       	ld	r25, X
+     b3a:	15 97       	sbiw	r26, 0x05	; 5
+     b3c:	01 97       	sbiw	r24, 0x01	; 1
+        // If we have, check that our output buffer is
+        // not full.
+        if (!fifo_isfull(fifo)) {
+     b3e:	28 17       	cp	r18, r24
+     b40:	39 07       	cpc	r19, r25
+     b42:	09 f4       	brne	.+2      	; 0xb46 <AFSK_adc_isr+0x1b0>
+     b44:	cf c0       	rjmp	.+414    	; 0xce4 <AFSK_adc_isr+0x34e>
+}
+
+inline void fifo_push(FIFOBuffer *f, unsigned char c) {
+  *(f->tail) = c;
+     b46:	16 96       	adiw	r26, 0x06	; 6
+     b48:	cd 91       	ld	r28, X+
+     b4a:	dc 91       	ld	r29, X
+     b4c:	17 97       	sbiw	r26, 0x07	; 7
+     b4e:	8e e7       	ldi	r24, 0x7E	; 126
+     b50:	88 83       	st	Y, r24
+  
+  if (f->tail == f->end) {
+     b52:	16 96       	adiw	r26, 0x06	; 6
+     b54:	2d 91       	ld	r18, X+
+     b56:	3c 91       	ld	r19, X
+     b58:	17 97       	sbiw	r26, 0x07	; 7
+     b5a:	12 96       	adiw	r26, 0x02	; 2
+     b5c:	8d 91       	ld	r24, X+
+     b5e:	9c 91       	ld	r25, X
+     b60:	13 97       	sbiw	r26, 0x03	; 3
+     b62:	28 17       	cp	r18, r24
+     b64:	39 07       	cpc	r19, r25
+     b66:	21 f4       	brne	.+8      	; 0xb70 <AFSK_adc_isr+0x1da>
+    f->tail = f->begin;
+     b68:	8d 91       	ld	r24, X+
+     b6a:	9c 91       	ld	r25, X
+     b6c:	11 97       	sbiw	r26, 0x01	; 1
+     b6e:	05 c0       	rjmp	.+10     	; 0xb7a <AFSK_adc_isr+0x1e4>
+  } else {
+    f->tail++;
+     b70:	16 96       	adiw	r26, 0x06	; 6
+     b72:	8d 91       	ld	r24, X+
+     b74:	9c 91       	ld	r25, X
+     b76:	17 97       	sbiw	r26, 0x07	; 7
+     b78:	01 96       	adiw	r24, 0x01	; 1
+     b7a:	17 96       	adiw	r26, 0x07	; 7
+     b7c:	9c 93       	st	X, r25
+     b7e:	8e 93       	st	-X, r24
+     b80:	16 97       	sbiw	r26, 0x06	; 6
+            // If it isn't, we'll push the HDLC_FLAG into
+            // the buffer and indicate that we are now
+            // receiving data. For bling we also turn
+            // on the RX LED.
+            fifo_push(fifo, HDLC_FLAG);
+            hdlc->receiving = true;
+     b82:	81 e0       	ldi	r24, 0x01	; 1
+     b84:	81 8b       	std	Z+17, r24	; 0x11
+            #if OPEN_SQUELCH == false
+                LED_RX_ON();
+     b86:	2a 9a       	sbi	0x05, 2	; 5
+     b88:	b0 c0       	rjmp	.+352    	; 0xcea <AFSK_adc_isr+0x354>
+    // (or silence) is taking place, and the demodulator
+    // returns an endless stream of zeroes. Due to the NRZ
+    // coding, the actual bits send to this function will
+    // be an endless stream of ones, which this AND operation
+    // will also detect.
+    if ((hdlc->demodulatedBits & HDLC_RESET) == HDLC_RESET) {
+     b8a:	98 2f       	mov	r25, r24
+     b8c:	9f 77       	andi	r25, 0x7F	; 127
+     b8e:	9f 37       	cpi	r25, 0x7F	; 127
+     b90:	19 f4       	brne	.+6      	; 0xb98 <AFSK_adc_isr+0x202>
+        // If we have, something probably went wrong at the
+        // transmitting end, and we abort the reception.
+        hdlc->receiving = false;
+     b92:	11 8a       	std	Z+17, r1	; 0x11
+        LED_RX_OFF();
+     b94:	2a 98       	cbi	0x05, 2	; 5
+     b96:	da c0       	rjmp	.+436    	; 0xd4c <AFSK_adc_isr+0x3b6>
+    }
+
+    // If we have not yet seen a HDLC_FLAG indicating that
+    // a transmission is actually taking place, don't bother
+    // with anything.
+    if (!hdlc->receiving)
+     b98:	91 89       	ldd	r25, Z+17	; 0x11
+     b9a:	99 23       	and	r25, r25
+     b9c:	09 f4       	brne	.+2      	; 0xba0 <AFSK_adc_isr+0x20a>
+     b9e:	d6 c0       	rjmp	.+428    	; 0xd4c <AFSK_adc_isr+0x3b6>
+    // 
+    // We do the detection by applying an AND bit-mask to the
+    // stream of demodulated bits. This mask is 00111111 (0x3f)
+    // if the result of the operation is 00111110 (0x3e), we
+    // have detected a stuffed bit.
+    if ((hdlc->demodulatedBits & 0x3f) == 0x3e)
+     ba0:	98 2f       	mov	r25, r24
+     ba2:	9f 73       	andi	r25, 0x3F	; 63
+     ba4:	9e 33       	cpi	r25, 0x3E	; 62
+     ba6:	09 f4       	brne	.+2      	; 0xbaa <AFSK_adc_isr+0x214>
+     ba8:	d1 c0       	rjmp	.+418    	; 0xd4c <AFSK_adc_isr+0x3b6>
+        return ret;
+
+    // If we have an actual 1 bit, push this to the current byte
+    // If it's a zero, we don't need to do anything, since the
+    // bit is initialized to zero when we bitshifted earlier.
+    if (hdlc->demodulatedBits & 0x01)
+     baa:	80 ff       	sbrs	r24, 0
+     bac:	03 c0       	rjmp	.+6      	; 0xbb4 <AFSK_adc_isr+0x21e>
+        hdlc->currentByte |= 0x80;
+     bae:	80 89       	ldd	r24, Z+16	; 0x10
+     bb0:	80 68       	ori	r24, 0x80	; 128
+     bb2:	80 8b       	std	Z+16, r24	; 0x10
+
+    // Increment the bitIndex and check if we have a complete byte
+    if (++hdlc->bitIndex >= 8) {
+     bb4:	97 85       	ldd	r25, Z+15	; 0x0f
+     bb6:	9f 5f       	subi	r25, 0xFF	; 255
+     bb8:	97 87       	std	Z+15, r25	; 0x0f
+     bba:	80 89       	ldd	r24, Z+16	; 0x10
+     bbc:	98 30       	cpi	r25, 0x08	; 8
+     bbe:	08 f4       	brcc	.+2      	; 0xbc2 <AFSK_adc_isr+0x22c>
+     bc0:	99 c0       	rjmp	.+306    	; 0xcf4 <AFSK_adc_isr+0x35e>
+     bc2:	df 01       	movw	r26, r30
+     bc4:	ab 58       	subi	r26, 0x8B	; 139
+     bc6:	bf 4f       	sbci	r27, 0xFF	; 255
+        // of a bitstuffed byte that is equal to said control
+        // character, but is actually part of the data stream.
+        // By inserting the escape character, we tell the protocol
+        // layer that this is not an actual control character, but
+        // data.
+        if ((hdlc->currentByte == HDLC_FLAG ||
+     bc8:	92 e8       	ldi	r25, 0x82	; 130
+     bca:	98 0f       	add	r25, r24
+     bcc:	92 30       	cpi	r25, 0x02	; 2
+     bce:	18 f0       	brcs	.+6      	; 0xbd6 <AFSK_adc_isr+0x240>
+             hdlc->currentByte == HDLC_RESET ||
+     bd0:	8b 31       	cpi	r24, 0x1B	; 27
+     bd2:	09 f0       	breq	.+2      	; 0xbd6 <AFSK_adc_isr+0x240>
+     bd4:	44 c0       	rjmp	.+136    	; 0xc5e <AFSK_adc_isr+0x2c8>
+inline bool fifo_isempty(const FIFOBuffer *f) {
+  return f->head == f->tail;
+}
+
+inline bool fifo_isfull(const FIFOBuffer *f) {
+  return ((f->head == f->begin) && (f->tail == f->end)) || (f->tail == f->head - 1);
+     bd6:	14 96       	adiw	r26, 0x04	; 4
+     bd8:	2d 91       	ld	r18, X+
+     bda:	3c 91       	ld	r19, X
+     bdc:	15 97       	sbiw	r26, 0x05	; 5
+     bde:	8d 91       	ld	r24, X+
+     be0:	9c 91       	ld	r25, X
+     be2:	11 97       	sbiw	r26, 0x01	; 1
+     be4:	28 17       	cp	r18, r24
+     be6:	39 07       	cpc	r19, r25
+     be8:	59 f4       	brne	.+22     	; 0xc00 <AFSK_adc_isr+0x26a>
+     bea:	16 96       	adiw	r26, 0x06	; 6
+     bec:	2d 91       	ld	r18, X+
+     bee:	3c 91       	ld	r19, X
+     bf0:	17 97       	sbiw	r26, 0x07	; 7
+     bf2:	12 96       	adiw	r26, 0x02	; 2
+     bf4:	8d 91       	ld	r24, X+
+     bf6:	9c 91       	ld	r25, X
+     bf8:	13 97       	sbiw	r26, 0x03	; 3
+     bfa:	28 17       	cp	r18, r24
+     bfc:	39 07       	cpc	r19, r25
+     bfe:	59 f1       	breq	.+86     	; 0xc56 <AFSK_adc_isr+0x2c0>
+     c00:	16 96       	adiw	r26, 0x06	; 6
+     c02:	2d 91       	ld	r18, X+
+     c04:	3c 91       	ld	r19, X
+     c06:	17 97       	sbiw	r26, 0x07	; 7
+     c08:	14 96       	adiw	r26, 0x04	; 4
+     c0a:	8d 91       	ld	r24, X+
+     c0c:	9c 91       	ld	r25, X
+     c0e:	15 97       	sbiw	r26, 0x05	; 5
+     c10:	01 97       	sbiw	r24, 0x01	; 1
+             hdlc->currentByte == AX25_ESC)) {
+            // We also need to check that our received data buffer
+            // is not full before putting more data in
+            if (!fifo_isfull(fifo)) {
+     c12:	28 17       	cp	r18, r24
+     c14:	39 07       	cpc	r19, r25
+     c16:	f9 f0       	breq	.+62     	; 0xc56 <AFSK_adc_isr+0x2c0>
+}
+
+inline void fifo_push(FIFOBuffer *f, unsigned char c) {
+  *(f->tail) = c;
+     c18:	16 96       	adiw	r26, 0x06	; 6
+     c1a:	cd 91       	ld	r28, X+
+     c1c:	dc 91       	ld	r29, X
+     c1e:	17 97       	sbiw	r26, 0x07	; 7
+     c20:	8b e1       	ldi	r24, 0x1B	; 27
+     c22:	88 83       	st	Y, r24
+  
+  if (f->tail == f->end) {
+     c24:	16 96       	adiw	r26, 0x06	; 6
+     c26:	2d 91       	ld	r18, X+
+     c28:	3c 91       	ld	r19, X
+     c2a:	17 97       	sbiw	r26, 0x07	; 7
+     c2c:	12 96       	adiw	r26, 0x02	; 2
+     c2e:	8d 91       	ld	r24, X+
+     c30:	9c 91       	ld	r25, X
+     c32:	13 97       	sbiw	r26, 0x03	; 3
+     c34:	28 17       	cp	r18, r24
+     c36:	39 07       	cpc	r19, r25
+     c38:	21 f4       	brne	.+8      	; 0xc42 <AFSK_adc_isr+0x2ac>
+    f->tail = f->begin;
+     c3a:	8d 91       	ld	r24, X+
+     c3c:	9c 91       	ld	r25, X
+     c3e:	11 97       	sbiw	r26, 0x01	; 1
+     c40:	05 c0       	rjmp	.+10     	; 0xc4c <AFSK_adc_isr+0x2b6>
+  } else {
+    f->tail++;
+     c42:	16 96       	adiw	r26, 0x06	; 6
+     c44:	8d 91       	ld	r24, X+
+     c46:	9c 91       	ld	r25, X
+     c48:	17 97       	sbiw	r26, 0x07	; 7
+     c4a:	01 96       	adiw	r24, 0x01	; 1
+     c4c:	17 96       	adiw	r26, 0x07	; 7
+     c4e:	9c 93       	st	X, r25
+     c50:	8e 93       	st	-X, r24
+     c52:	16 97       	sbiw	r26, 0x06	; 6
+     c54:	04 c0       	rjmp	.+8      	; 0xc5e <AFSK_adc_isr+0x2c8>
+                fifo_push(fifo, AX25_ESC);
+            } else {
+                // If it is, abort and return false
+                hdlc->receiving = false;
+     c56:	11 8a       	std	Z+17, r1	; 0x11
+                LED_RX_OFF();
+     c58:	2a 98       	cbi	0x05, 2	; 5
+                ret = false;
+     c5a:	80 e0       	ldi	r24, 0x00	; 0
+     c5c:	01 c0       	rjmp	.+2      	; 0xc60 <AFSK_adc_isr+0x2ca>
+}
+
+static bool hdlcParse(Hdlc *hdlc, bool bit, FIFOBuffer *fifo) {
+    // Initialise a return value. We start with the
+    // assumption that all is going to end well :)
+    bool ret = true;
+     c5e:	81 e0       	ldi	r24, 0x01	; 1
+inline bool fifo_isempty(const FIFOBuffer *f) {
+  return f->head == f->tail;
+}
+
+inline bool fifo_isfull(const FIFOBuffer *f) {
+  return ((f->head == f->begin) && (f->tail == f->end)) || (f->tail == f->head - 1);
+     c60:	14 96       	adiw	r26, 0x04	; 4
+     c62:	4d 91       	ld	r20, X+
+     c64:	5c 91       	ld	r21, X
+     c66:	15 97       	sbiw	r26, 0x05	; 5
+     c68:	2d 91       	ld	r18, X+
+     c6a:	3c 91       	ld	r19, X
+     c6c:	11 97       	sbiw	r26, 0x01	; 1
+     c6e:	42 17       	cp	r20, r18
+     c70:	53 07       	cpc	r21, r19
+     c72:	59 f4       	brne	.+22     	; 0xc8a <AFSK_adc_isr+0x2f4>
+     c74:	16 96       	adiw	r26, 0x06	; 6
+     c76:	4d 91       	ld	r20, X+
+     c78:	5c 91       	ld	r21, X
+     c7a:	17 97       	sbiw	r26, 0x07	; 7
+     c7c:	12 96       	adiw	r26, 0x02	; 2
+     c7e:	2d 91       	ld	r18, X+
+     c80:	3c 91       	ld	r19, X
+     c82:	13 97       	sbiw	r26, 0x03	; 3
+     c84:	42 17       	cp	r20, r18
+     c86:	53 07       	cpc	r21, r19
+     c88:	69 f1       	breq	.+90     	; 0xce4 <AFSK_adc_isr+0x34e>
+     c8a:	16 96       	adiw	r26, 0x06	; 6
+     c8c:	4d 91       	ld	r20, X+
+     c8e:	5c 91       	ld	r21, X
+     c90:	17 97       	sbiw	r26, 0x07	; 7
+     c92:	14 96       	adiw	r26, 0x04	; 4
+     c94:	2d 91       	ld	r18, X+
+     c96:	3c 91       	ld	r19, X
+     c98:	15 97       	sbiw	r26, 0x05	; 5
+     c9a:	21 50       	subi	r18, 0x01	; 1
+     c9c:	31 09       	sbc	r19, r1
+            }
+        }
+
+        // Push the actual byte to the received data FIFO,
+        // if it isn't full.
+        if (!fifo_isfull(fifo)) {
+     c9e:	42 17       	cp	r20, r18
+     ca0:	53 07       	cpc	r21, r19
+     ca2:	01 f1       	breq	.+64     	; 0xce4 <AFSK_adc_isr+0x34e>
+            fifo_push(fifo, hdlc->currentByte);
+     ca4:	90 89       	ldd	r25, Z+16	; 0x10
+}
+
+inline void fifo_push(FIFOBuffer *f, unsigned char c) {
+  *(f->tail) = c;
+     ca6:	16 96       	adiw	r26, 0x06	; 6
+     ca8:	cd 91       	ld	r28, X+
+     caa:	dc 91       	ld	r29, X
+     cac:	17 97       	sbiw	r26, 0x07	; 7
+     cae:	98 83       	st	Y, r25
+  
+  if (f->tail == f->end) {
+     cb0:	16 96       	adiw	r26, 0x06	; 6
+     cb2:	4d 91       	ld	r20, X+
+     cb4:	5c 91       	ld	r21, X
+     cb6:	17 97       	sbiw	r26, 0x07	; 7
+     cb8:	12 96       	adiw	r26, 0x02	; 2
+     cba:	2d 91       	ld	r18, X+
+     cbc:	3c 91       	ld	r19, X
+     cbe:	13 97       	sbiw	r26, 0x03	; 3
+     cc0:	42 17       	cp	r20, r18
+     cc2:	53 07       	cpc	r21, r19
+     cc4:	21 f4       	brne	.+8      	; 0xcce <AFSK_adc_isr+0x338>
+    f->tail = f->begin;
+     cc6:	2d 91       	ld	r18, X+
+     cc8:	3c 91       	ld	r19, X
+     cca:	11 97       	sbiw	r26, 0x01	; 1
+     ccc:	06 c0       	rjmp	.+12     	; 0xcda <AFSK_adc_isr+0x344>
+  } else {
+    f->tail++;
+     cce:	16 96       	adiw	r26, 0x06	; 6
+     cd0:	2d 91       	ld	r18, X+
+     cd2:	3c 91       	ld	r19, X
+     cd4:	17 97       	sbiw	r26, 0x07	; 7
+     cd6:	2f 5f       	subi	r18, 0xFF	; 255
+     cd8:	3f 4f       	sbci	r19, 0xFF	; 255
+     cda:	17 96       	adiw	r26, 0x07	; 7
+     cdc:	3c 93       	st	X, r19
+     cde:	2e 93       	st	-X, r18
+     ce0:	16 97       	sbiw	r26, 0x06	; 6
+     ce2:	03 c0       	rjmp	.+6      	; 0xcea <AFSK_adc_isr+0x354>
+        } else {
+            // If it is, well, you know by now!
+            hdlc->receiving = false;
+     ce4:	11 8a       	std	Z+17, r1	; 0x11
+            LED_RX_OFF();
+     ce6:	2a 98       	cbi	0x05, 2	; 5
+            ret = false;
+     ce8:	80 e0       	ldi	r24, 0x00	; 0
+        }
+
+        // Wipe received byte and reset bit index to 0
+        hdlc->currentByte = 0;
+     cea:	10 8a       	std	Z+16, r1	; 0x10
+        hdlc->bitIndex = 0;
+     cec:	17 86       	std	Z+15, r1	; 0x0f
+        // that we can use to synchronize our phase.
+        //
+        // We also check the return of the Link Control parser
+        // to check if an error occured.
+
+        if (!hdlcParse(&afsk->hdlc, !TRANSITION_FOUND(afsk->actualBits), &afsk->rxFifo)) {
+     cee:	88 23       	and	r24, r24
+     cf0:	21 f0       	breq	.+8      	; 0xcfa <AFSK_adc_isr+0x364>
+     cf2:	2c c0       	rjmp	.+88     	; 0xd4c <AFSK_adc_isr+0x3b6>
+        hdlc->bitIndex = 0;
+
+    } else {
+        // We don't have a full byte yet, bitshift the byte
+        // to make room for the next bit
+        hdlc->currentByte >>= 1;
+     cf4:	86 95       	lsr	r24
+     cf6:	80 8b       	std	Z+16, r24	; 0x10
+     cf8:	29 c0       	rjmp	.+82     	; 0xd4c <AFSK_adc_isr+0x3b6>
+        //
+        // We also check the return of the Link Control parser
+        // to check if an error occured.
+
+        if (!hdlcParse(&afsk->hdlc, !TRANSITION_FOUND(afsk->actualBits), &afsk->rxFifo)) {
+            afsk->status |= 1;
+     cfa:	df 01       	movw	r26, r30
+     cfc:	a8 53       	subi	r26, 0x38	; 56
+     cfe:	bf 4f       	sbci	r27, 0xFF	; 255
+     d00:	8d 91       	ld	r24, X+
+     d02:	9c 91       	ld	r25, X
+     d04:	11 97       	sbiw	r26, 0x01	; 1
+     d06:	81 60       	ori	r24, 0x01	; 1
+     d08:	11 96       	adiw	r26, 0x01	; 1
+     d0a:	9c 93       	st	X, r25
+     d0c:	8e 93       	st	-X, r24
+inline bool fifo_isempty(const FIFOBuffer *f) {
+  return f->head == f->tail;
+}
+
+inline bool fifo_isfull(const FIFOBuffer *f) {
+  return ((f->head == f->begin) && (f->tail == f->end)) || (f->tail == f->head - 1);
+     d0e:	eb 58       	subi	r30, 0x8B	; 139
+     d10:	ff 4f       	sbci	r31, 0xFF	; 255
+     d12:	24 81       	ldd	r18, Z+4	; 0x04
+     d14:	35 81       	ldd	r19, Z+5	; 0x05
+     d16:	80 81       	ld	r24, Z
+     d18:	91 81       	ldd	r25, Z+1	; 0x01
+     d1a:	28 17       	cp	r18, r24
+     d1c:	39 07       	cpc	r19, r25
+     d1e:	39 f4       	brne	.+14     	; 0xd2e <AFSK_adc_isr+0x398>
+     d20:	26 81       	ldd	r18, Z+6	; 0x06
+     d22:	37 81       	ldd	r19, Z+7	; 0x07
+     d24:	82 81       	ldd	r24, Z+2	; 0x02
+     d26:	93 81       	ldd	r25, Z+3	; 0x03
+     d28:	28 17       	cp	r18, r24
+     d2a:	39 07       	cpc	r19, r25
+     d2c:	41 f0       	breq	.+16     	; 0xd3e <AFSK_adc_isr+0x3a8>
+     d2e:	26 81       	ldd	r18, Z+6	; 0x06
+     d30:	37 81       	ldd	r19, Z+7	; 0x07
+     d32:	84 81       	ldd	r24, Z+4	; 0x04
+     d34:	95 81       	ldd	r25, Z+5	; 0x05
+     d36:	01 97       	sbiw	r24, 0x01	; 1
+            if (fifo_isfull(&afsk->rxFifo)) {
+     d38:	28 17       	cp	r18, r24
+     d3a:	39 07       	cpc	r19, r25
+     d3c:	39 f4       	brne	.+14     	; 0xd4c <AFSK_adc_isr+0x3b6>
+    return *(f->head++);
+  }
+}
+
+inline void fifo_flush(FIFOBuffer *f) {
+  f->head = f->tail;
+     d3e:	86 81       	ldd	r24, Z+6	; 0x06
+     d40:	97 81       	ldd	r25, Z+7	; 0x07
+     d42:	95 83       	std	Z+5, r25	; 0x05
+     d44:	84 83       	std	Z+4, r24	; 0x04
+                fifo_flush(&afsk->rxFifo);
+                afsk->status = 0;
+     d46:	11 96       	adiw	r26, 0x01	; 1
+     d48:	1c 92       	st	X, r1
+     d4a:	1e 92       	st	-X, r1
+            }
+        }
+    }
+
+}
+     d4c:	df 91       	pop	r29
+     d4e:	cf 91       	pop	r28
+     d50:	1f 91       	pop	r17
+     d52:	0f 91       	pop	r16
+     d54:	ff 90       	pop	r15
+     d56:	ef 90       	pop	r14
+     d58:	08 95       	ret
+
+00000d5a <__vector_21>:
+
+
+ISR(ADC_vect) {
+     d5a:	1f 92       	push	r1
+     d5c:	0f 92       	push	r0
+     d5e:	0f b6       	in	r0, 0x3f	; 63
+     d60:	0f 92       	push	r0
+     d62:	11 24       	eor	r1, r1
+     d64:	2f 93       	push	r18
+     d66:	3f 93       	push	r19
+     d68:	4f 93       	push	r20
+     d6a:	5f 93       	push	r21
+     d6c:	6f 93       	push	r22
+     d6e:	7f 93       	push	r23
+     d70:	8f 93       	push	r24
+     d72:	9f 93       	push	r25
+     d74:	af 93       	push	r26
+     d76:	bf 93       	push	r27
+     d78:	ef 93       	push	r30
+     d7a:	ff 93       	push	r31
+    TIFR1 = _BV(ICF1);
+     d7c:	80 e2       	ldi	r24, 0x20	; 32
+     d7e:	86 bb       	out	0x16, r24	; 22
+    AFSK_adc_isr(AFSK_modem, ((int16_t)((ADC) >> 2) - 128));
+     d80:	60 91 78 00 	lds	r22, 0x0078	; 0x800078 <__TEXT_REGION_LENGTH__+0x7e0078>
+     d84:	70 91 79 00 	lds	r23, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7e0079>
+     d88:	76 95       	lsr	r23
+     d8a:	67 95       	ror	r22
+     d8c:	76 95       	lsr	r23
+     d8e:	67 95       	ror	r22
+     d90:	60 58       	subi	r22, 0x80	; 128
+     d92:	80 91 2c 08 	lds	r24, 0x082C	; 0x80082c <AFSK_modem>
+     d96:	90 91 2d 08 	lds	r25, 0x082D	; 0x80082d <AFSK_modem+0x1>
+     d9a:	0e 94 cb 04 	call	0x996	; 0x996 <AFSK_adc_isr>
+    if (hw_afsk_dac_isr) {
+     d9e:	80 91 13 01 	lds	r24, 0x0113	; 0x800113 <hw_afsk_dac_isr>
+     da2:	88 23       	and	r24, r24
+     da4:	41 f0       	breq	.+16     	; 0xdb6 <__vector_21+0x5c>
+        DAC_PORT = (AFSK_dac_isr(AFSK_modem) & 0xF0); 
+     da6:	80 91 2c 08 	lds	r24, 0x082C	; 0x80082c <AFSK_modem>
+     daa:	90 91 2d 08 	lds	r25, 0x082D	; 0x80082d <AFSK_modem+0x1>
+     dae:	0e 94 b0 03 	call	0x760	; 0x760 <AFSK_dac_isr>
+     db2:	80 7f       	andi	r24, 0xF0	; 240
+     db4:	01 c0       	rjmp	.+2      	; 0xdb8 <__vector_21+0x5e>
+    } else {
+        DAC_PORT = 0x88;
+     db6:	88 e8       	ldi	r24, 0x88	; 136
+     db8:	8b b9       	out	0x0b, r24	; 11
+    }
+    ++_clock;
+     dba:	80 91 f6 04 	lds	r24, 0x04F6	; 0x8004f6 <_clock>
+     dbe:	90 91 f7 04 	lds	r25, 0x04F7	; 0x8004f7 <_clock+0x1>
+     dc2:	a0 91 f8 04 	lds	r26, 0x04F8	; 0x8004f8 <_clock+0x2>
+     dc6:	b0 91 f9 04 	lds	r27, 0x04F9	; 0x8004f9 <_clock+0x3>
+     dca:	01 96       	adiw	r24, 0x01	; 1
+     dcc:	a1 1d       	adc	r26, r1
+     dce:	b1 1d       	adc	r27, r1
+     dd0:	80 93 f6 04 	sts	0x04F6, r24	; 0x8004f6 <_clock>
+     dd4:	90 93 f7 04 	sts	0x04F7, r25	; 0x8004f7 <_clock+0x1>
+     dd8:	a0 93 f8 04 	sts	0x04F8, r26	; 0x8004f8 <_clock+0x2>
+     ddc:	b0 93 f9 04 	sts	0x04F9, r27	; 0x8004f9 <_clock+0x3>
+}
+     de0:	ff 91       	pop	r31
+     de2:	ef 91       	pop	r30
+     de4:	bf 91       	pop	r27
+     de6:	af 91       	pop	r26
+     de8:	9f 91       	pop	r25
+     dea:	8f 91       	pop	r24
+     dec:	7f 91       	pop	r23
+     dee:	6f 91       	pop	r22
+     df0:	5f 91       	pop	r21
+     df2:	4f 91       	pop	r20
+     df4:	3f 91       	pop	r19
+     df6:	2f 91       	pop	r18
+     df8:	0f 90       	pop	r0
+     dfa:	0f be       	out	0x3f, r0	; 63
+     dfc:	0f 90       	pop	r0
+     dfe:	1f 90       	pop	r1
+     e00:	18 95       	reti
+
+00000e02 <ax25_putchar>:
+        ctx->escape = false;
+    }
+}
+
+static void ax25_putchar(AX25Ctx *ctx, uint8_t c)
+{
+     e02:	cf 92       	push	r12
+     e04:	df 92       	push	r13
+     e06:	ef 92       	push	r14
+     e08:	ff 92       	push	r15
+     e0a:	0f 93       	push	r16
+     e0c:	1f 93       	push	r17
+     e0e:	cf 93       	push	r28
+     e10:	df 93       	push	r29
+     e12:	1f 92       	push	r1
+     e14:	cd b7       	in	r28, 0x3d	; 61
+     e16:	de b7       	in	r29, 0x3e	; 62
+     e18:	7c 01       	movw	r14, r24
+     e1a:	26 2f       	mov	r18, r22
+    if (c == HDLC_FLAG || c == HDLC_RESET || c == AX25_ESC) fputc(AX25_ESC, ctx->ch);
+     e1c:	82 e8       	ldi	r24, 0x82	; 130
+     e1e:	86 0f       	add	r24, r22
+     e20:	87 01       	movw	r16, r14
+     e22:	08 5e       	subi	r16, 0xE8	; 232
+     e24:	1c 4f       	sbci	r17, 0xFC	; 252
+     e26:	82 30       	cpi	r24, 0x02	; 2
+     e28:	10 f0       	brcs	.+4      	; 0xe2e <ax25_putchar+0x2c>
+     e2a:	6b 31       	cpi	r22, 0x1B	; 27
+     e2c:	49 f4       	brne	.+18     	; 0xe40 <ax25_putchar+0x3e>
+     e2e:	f8 01       	movw	r30, r16
+     e30:	60 81       	ld	r22, Z
+     e32:	71 81       	ldd	r23, Z+1	; 0x01
+     e34:	8b e1       	ldi	r24, 0x1B	; 27
+     e36:	90 e0       	ldi	r25, 0x00	; 0
+     e38:	29 83       	std	Y+1, r18	; 0x01
+     e3a:	0e 94 ba 0a 	call	0x1574	; 0x1574 <fputc>
+     e3e:	29 81       	ldd	r18, Y+1	; 0x01
+    ctx->crc_out = update_crc_ccit(c, ctx->crc_out);
+     e40:	d7 01       	movw	r26, r14
+     e42:	a2 5e       	subi	r26, 0xE2	; 226
+     e44:	bc 4f       	sbci	r27, 0xFC	; 252
+     e46:	3c 91       	ld	r19, X
+     e48:	11 96       	adiw	r26, 0x01	; 1
+     e4a:	4c 91       	ld	r20, X
+     e4c:	11 97       	sbiw	r26, 0x01	; 1
+#define CRC_CCIT_INIT_VAL ((uint16_t)0xFFFF)
+
+extern const uint16_t crc_ccit_table[256];
+
+inline uint16_t update_crc_ccit(uint8_t c, uint16_t prev_crc) {
+    return (prev_crc >> 8) ^ pgm_read_word(&crc_ccit_table[(prev_crc ^ c) & 0xff]);
+     e4e:	82 2f       	mov	r24, r18
+     e50:	90 e0       	ldi	r25, 0x00	; 0
+     e52:	fc 01       	movw	r30, r24
+     e54:	e3 27       	eor	r30, r19
+     e56:	ee 0f       	add	r30, r30
+     e58:	ff 1f       	adc	r31, r31
+     e5a:	e8 51       	subi	r30, 0x18	; 24
+     e5c:	ff 4f       	sbci	r31, 0xFF	; 255
+     e5e:	25 91       	lpm	r18, Z+
+     e60:	34 91       	lpm	r19, Z
+     e62:	c4 2e       	mov	r12, r20
+     e64:	d1 2c       	mov	r13, r1
+     e66:	2c 25       	eor	r18, r12
+     e68:	3d 25       	eor	r19, r13
+     e6a:	2d 93       	st	X+, r18
+     e6c:	3c 93       	st	X, r19
+    fputc(c, ctx->ch);
+     e6e:	f8 01       	movw	r30, r16
+     e70:	60 81       	ld	r22, Z
+     e72:	71 81       	ldd	r23, Z+1	; 0x01
+}
+     e74:	0f 90       	pop	r0
+     e76:	df 91       	pop	r29
+     e78:	cf 91       	pop	r28
+     e7a:	1f 91       	pop	r17
+     e7c:	0f 91       	pop	r16
+     e7e:	ff 90       	pop	r15
+     e80:	ef 90       	pop	r14
+     e82:	df 90       	pop	r13
+     e84:	cf 90       	pop	r12
+
+static void ax25_putchar(AX25Ctx *ctx, uint8_t c)
+{
+    if (c == HDLC_FLAG || c == HDLC_RESET || c == AX25_ESC) fputc(AX25_ESC, ctx->ch);
+    ctx->crc_out = update_crc_ccit(c, ctx->crc_out);
+    fputc(c, ctx->ch);
+     e86:	0c 94 ba 0a 	jmp	0x1574	; 0x1574 <fputc>
+
+00000e8a <ax25_init>:
+#define MIN(a,b) ({ typeof(a) _a = (a); typeof(b) _b = (b); ((typeof(_a))((_a < _b) ? _a : _b)); })
+#define DECODE_CALL(buf, addr) for (unsigned i = 0; i < sizeof((addr)); i++) { char c = (*(buf)++ >> 1); (addr)[i] = (c == ' ') ? '\x0' : c; }
+#define AX25_SET_REPEATED(msg, idx, val) do { if (val) { (msg)->rpt_flags |= _BV(idx); } else { (msg)->rpt_flags &= ~_BV(idx) ; } } while(0)
+
+void ax25_init(AX25Ctx *ctx, FILE *channel, ax25_callback_t hook) {
+    memset(ctx, 0, sizeof(*ctx));
+     e8a:	24 e2       	ldi	r18, 0x24	; 36
+     e8c:	33 e0       	ldi	r19, 0x03	; 3
+     e8e:	dc 01       	movw	r26, r24
+     e90:	f9 01       	movw	r30, r18
+     e92:	1d 92       	st	X+, r1
+     e94:	31 97       	sbiw	r30, 0x01	; 1
+     e96:	e9 f7       	brne	.-6      	; 0xe92 <ax25_init+0x8>
+    ctx->ch = channel;
+     e98:	fc 01       	movw	r30, r24
+     e9a:	e8 5e       	subi	r30, 0xE8	; 232
+     e9c:	fc 4f       	sbci	r31, 0xFC	; 252
+     e9e:	71 83       	std	Z+1, r23	; 0x01
+     ea0:	60 83       	st	Z, r22
+    ctx->hook = hook;
+     ea2:	38 96       	adiw	r30, 0x08	; 8
+     ea4:	51 83       	std	Z+1, r21	; 0x01
+     ea6:	40 83       	st	Z, r20
+    ctx->crc_in = ctx->crc_out = CRC_CCIT_INIT_VAL;
+     ea8:	32 97       	sbiw	r30, 0x02	; 2
+     eaa:	2f ef       	ldi	r18, 0xFF	; 255
+     eac:	3f ef       	ldi	r19, 0xFF	; 255
+     eae:	31 83       	std	Z+1, r19	; 0x01
+     eb0:	20 83       	st	Z, r18
+     eb2:	32 97       	sbiw	r30, 0x02	; 2
+     eb4:	31 83       	std	Z+1, r19	; 0x01
+     eb6:	20 83       	st	Z, r18
+     eb8:	08 95       	ret
+
+00000eba <ax25_poll>:
+        if (ctx->hook) ctx->hook(&msg);        
+
+    #endif
+}
+
+void ax25_poll(AX25Ctx *ctx) {
+     eba:	3f 92       	push	r3
+     ebc:	4f 92       	push	r4
+     ebe:	5f 92       	push	r5
+     ec0:	6f 92       	push	r6
+     ec2:	7f 92       	push	r7
+     ec4:	8f 92       	push	r8
+     ec6:	9f 92       	push	r9
+     ec8:	af 92       	push	r10
+     eca:	bf 92       	push	r11
+     ecc:	cf 92       	push	r12
+     ece:	df 92       	push	r13
+     ed0:	ef 92       	push	r14
+     ed2:	ff 92       	push	r15
+     ed4:	0f 93       	push	r16
+     ed6:	1f 93       	push	r17
+     ed8:	cf 93       	push	r28
+     eda:	df 93       	push	r29
+     edc:	2c 01       	movw	r4, r24
+    int c;
+    
+    while ((c = fgetc(ctx->ch)) != EOF) {
+     ede:	3c 01       	movw	r6, r24
+     ee0:	28 ee       	ldi	r18, 0xE8	; 232
+     ee2:	62 1a       	sub	r6, r18
+     ee4:	2c ef       	ldi	r18, 0xFC	; 252
+     ee6:	72 0a       	sbc	r7, r18
+        if (!ctx->escape && c == HDLC_FLAG) {
+     ee8:	6c 01       	movw	r12, r24
+     eea:	4d ed       	ldi	r20, 0xDD	; 221
+     eec:	c4 1a       	sub	r12, r20
+     eee:	4c ef       	ldi	r20, 0xFC	; 252
+     ef0:	d4 0a       	sbc	r13, r20
+        if (!ctx->escape && c == AX25_ESC) {
+            ctx->escape = true;
+            continue;
+        }
+
+        if (ctx->sync) {
+     ef2:	ec 01       	movw	r28, r24
+     ef4:	ce 5d       	subi	r28, 0xDE	; 222
+     ef6:	dc 4f       	sbci	r29, 0xFC	; 252
+            if (ctx->frame_len < AX25_MAX_FRAME_LEN) {
+     ef8:	8c 01       	movw	r16, r24
+     efa:	06 5e       	subi	r16, 0xE6	; 230
+     efc:	1c 4f       	sbci	r17, 0xFC	; 252
+                ctx->buf[ctx->frame_len++] = c;
+                ctx->crc_in = update_crc_ccit(c, ctx->crc_in);
+     efe:	7c 01       	movw	r14, r24
+     f00:	84 ee       	ldi	r24, 0xE4	; 228
+     f02:	e8 1a       	sub	r14, r24
+     f04:	8c ef       	ldi	r24, 0xFC	; 252
+     f06:	f8 0a       	sbc	r15, r24
+            ctx->sync = false;
+            continue;
+        }
+
+        if (!ctx->escape && c == AX25_ESC) {
+            ctx->escape = true;
+     f08:	33 24       	eor	r3, r3
+     f0a:	33 94       	inc	r3
+                    #endif
+                    ax25_decode(ctx);
+                }
+            }
+            ctx->sync = true;
+            ctx->crc_in = CRC_CCIT_INIT_VAL;
+     f0c:	aa 24       	eor	r10, r10
+     f0e:	aa 94       	dec	r10
+     f10:	ba 2c       	mov	r11, r10
+    ctx->crc_in = ctx->crc_out = CRC_CCIT_INIT_VAL;
+}
+
+static void ax25_decode(AX25Ctx *ctx) {
+    #if SERIAL_PROTOCOL == PROTOCOL_KISS
+        if (ctx->hook) ctx->hook(ctx);
+     f12:	42 01       	movw	r8, r4
+     f14:	a0 ee       	ldi	r26, 0xE0	; 224
+     f16:	8a 1a       	sub	r8, r26
+     f18:	ac ef       	ldi	r26, 0xFC	; 252
+     f1a:	9a 0a       	sbc	r9, r26
+}
+
+void ax25_poll(AX25Ctx *ctx) {
+    int c;
+    
+    while ((c = fgetc(ctx->ch)) != EOF) {
+     f1c:	f3 01       	movw	r30, r6
+     f1e:	80 81       	ld	r24, Z
+     f20:	91 81       	ldd	r25, Z+1	; 0x01
+     f22:	0e 94 7c 0a 	call	0x14f8	; 0x14f8 <fgetc>
+     f26:	8f 3f       	cpi	r24, 0xFF	; 255
+     f28:	ff ef       	ldi	r31, 0xFF	; 255
+     f2a:	9f 07       	cpc	r25, r31
+     f2c:	09 f4       	brne	.+2      	; 0xf30 <ax25_poll+0x76>
+     f2e:	58 c0       	rjmp	.+176    	; 0xfe0 <ax25_poll+0x126>
+        if (!ctx->escape && c == HDLC_FLAG) {
+     f30:	f6 01       	movw	r30, r12
+     f32:	20 81       	ld	r18, Z
+     f34:	21 11       	cpse	r18, r1
+     f36:	28 c0       	rjmp	.+80     	; 0xf88 <ax25_poll+0xce>
+     f38:	8e 37       	cpi	r24, 0x7E	; 126
+     f3a:	91 05       	cpc	r25, r1
+     f3c:	d1 f4       	brne	.+52     	; 0xf72 <ax25_poll+0xb8>
+            if (ctx->frame_len >= AX25_MIN_FRAME_LEN) {
+     f3e:	d8 01       	movw	r26, r16
+     f40:	8d 91       	ld	r24, X+
+     f42:	9c 91       	ld	r25, X
+     f44:	42 97       	sbiw	r24, 0x12	; 18
+     f46:	68 f0       	brcs	.+26     	; 0xf62 <ax25_poll+0xa8>
+                if (ctx->crc_in == AX25_CRC_CORRECT) {
+     f48:	f7 01       	movw	r30, r14
+     f4a:	80 81       	ld	r24, Z
+     f4c:	91 81       	ldd	r25, Z+1	; 0x01
+     f4e:	88 3b       	cpi	r24, 0xB8	; 184
+     f50:	90 4f       	sbci	r25, 0xF0	; 240
+     f52:	39 f4       	brne	.+14     	; 0xf62 <ax25_poll+0xa8>
+    ctx->crc_in = ctx->crc_out = CRC_CCIT_INIT_VAL;
+}
+
+static void ax25_decode(AX25Ctx *ctx) {
+    #if SERIAL_PROTOCOL == PROTOCOL_KISS
+        if (ctx->hook) ctx->hook(ctx);
+     f54:	d4 01       	movw	r26, r8
+     f56:	ed 91       	ld	r30, X+
+     f58:	fc 91       	ld	r31, X
+     f5a:	30 97       	sbiw	r30, 0x00	; 0
+     f5c:	11 f0       	breq	.+4      	; 0xf62 <ax25_poll+0xa8>
+     f5e:	c2 01       	movw	r24, r4
+     f60:	09 95       	icall
+                        LED_RX_ON();
+                    #endif
+                    ax25_decode(ctx);
+                }
+            }
+            ctx->sync = true;
+     f62:	38 82       	st	Y, r3
+            ctx->crc_in = CRC_CCIT_INIT_VAL;
+     f64:	f7 01       	movw	r30, r14
+     f66:	b1 82       	std	Z+1, r11	; 0x01
+     f68:	a0 82       	st	Z, r10
+            ctx->frame_len = 0;
+     f6a:	d8 01       	movw	r26, r16
+     f6c:	1d 92       	st	X+, r1
+     f6e:	1c 92       	st	X, r1
+            continue;
+     f70:	d5 cf       	rjmp	.-86     	; 0xf1c <ax25_poll+0x62>
+        }
+
+        if (!ctx->escape && c == HDLC_RESET) {
+     f72:	8f 37       	cpi	r24, 0x7F	; 127
+     f74:	91 05       	cpc	r25, r1
+     f76:	11 f4       	brne	.+4      	; 0xf7c <ax25_poll+0xc2>
+            ctx->sync = false;
+     f78:	18 82       	st	Y, r1
+            continue;
+     f7a:	d0 cf       	rjmp	.-96     	; 0xf1c <ax25_poll+0x62>
+        }
+
+        if (!ctx->escape && c == AX25_ESC) {
+     f7c:	8b 31       	cpi	r24, 0x1B	; 27
+     f7e:	91 05       	cpc	r25, r1
+     f80:	19 f4       	brne	.+6      	; 0xf88 <ax25_poll+0xce>
+            ctx->escape = true;
+     f82:	f6 01       	movw	r30, r12
+     f84:	30 82       	st	Z, r3
+            continue;
+     f86:	ca cf       	rjmp	.-108    	; 0xf1c <ax25_poll+0x62>
+        }
+
+        if (ctx->sync) {
+     f88:	28 81       	ld	r18, Y
+     f8a:	22 23       	and	r18, r18
+     f8c:	31 f1       	breq	.+76     	; 0xfda <ax25_poll+0x120>
+            if (ctx->frame_len < AX25_MAX_FRAME_LEN) {
+     f8e:	d8 01       	movw	r26, r16
+     f90:	2d 91       	ld	r18, X+
+     f92:	3c 91       	ld	r19, X
+     f94:	28 31       	cpi	r18, 0x18	; 24
+     f96:	b3 e0       	ldi	r27, 0x03	; 3
+     f98:	3b 07       	cpc	r19, r27
+     f9a:	f0 f4       	brcc	.+60     	; 0xfd8 <ax25_poll+0x11e>
+                ctx->buf[ctx->frame_len++] = c;
+     f9c:	a9 01       	movw	r20, r18
+     f9e:	4f 5f       	subi	r20, 0xFF	; 255
+     fa0:	5f 4f       	sbci	r21, 0xFF	; 255
+     fa2:	f8 01       	movw	r30, r16
+     fa4:	51 83       	std	Z+1, r21	; 0x01
+     fa6:	40 83       	st	Z, r20
+     fa8:	f2 01       	movw	r30, r4
+     faa:	e2 0f       	add	r30, r18
+     fac:	f3 1f       	adc	r31, r19
+     fae:	80 83       	st	Z, r24
+                ctx->crc_in = update_crc_ccit(c, ctx->crc_in);
+     fb0:	d7 01       	movw	r26, r14
+     fb2:	2d 91       	ld	r18, X+
+     fb4:	3c 91       	ld	r19, X
+     fb6:	f9 01       	movw	r30, r18
+     fb8:	e8 27       	eor	r30, r24
+     fba:	ff 27       	eor	r31, r31
+     fbc:	ee 0f       	add	r30, r30
+     fbe:	ff 1f       	adc	r31, r31
+     fc0:	e8 51       	subi	r30, 0x18	; 24
+     fc2:	ff 4f       	sbci	r31, 0xFF	; 255
+     fc4:	85 91       	lpm	r24, Z+
+     fc6:	94 91       	lpm	r25, Z
+     fc8:	23 2f       	mov	r18, r19
+     fca:	33 27       	eor	r19, r19
+     fcc:	82 27       	eor	r24, r18
+     fce:	93 27       	eor	r25, r19
+     fd0:	f7 01       	movw	r30, r14
+     fd2:	91 83       	std	Z+1, r25	; 0x01
+     fd4:	80 83       	st	Z, r24
+     fd6:	01 c0       	rjmp	.+2      	; 0xfda <ax25_poll+0x120>
+            } else {
+                ctx->sync = false;
+     fd8:	18 82       	st	Y, r1
+            }
+        }
+        ctx->escape = false;
+     fda:	d6 01       	movw	r26, r12
+     fdc:	1c 92       	st	X, r1
+     fde:	9e cf       	rjmp	.-196    	; 0xf1c <ax25_poll+0x62>
+    }
+}
+     fe0:	df 91       	pop	r29
+     fe2:	cf 91       	pop	r28
+     fe4:	1f 91       	pop	r17
+     fe6:	0f 91       	pop	r16
+     fe8:	ff 90       	pop	r15
+     fea:	ef 90       	pop	r14
+     fec:	df 90       	pop	r13
+     fee:	cf 90       	pop	r12
+     ff0:	bf 90       	pop	r11
+     ff2:	af 90       	pop	r10
+     ff4:	9f 90       	pop	r9
+     ff6:	8f 90       	pop	r8
+     ff8:	7f 90       	pop	r7
+     ffa:	6f 90       	pop	r6
+     ffc:	5f 90       	pop	r5
+     ffe:	4f 90       	pop	r4
+    1000:	3f 90       	pop	r3
+    1002:	08 95       	ret
+
+00001004 <ax25_sendRaw>:
+    if (c == HDLC_FLAG || c == HDLC_RESET || c == AX25_ESC) fputc(AX25_ESC, ctx->ch);
+    ctx->crc_out = update_crc_ccit(c, ctx->crc_out);
+    fputc(c, ctx->ch);
+}
+
+void ax25_sendRaw(AX25Ctx *ctx, void *_buf, size_t len) {
+    1004:	8f 92       	push	r8
+    1006:	9f 92       	push	r9
+    1008:	af 92       	push	r10
+    100a:	bf 92       	push	r11
+    100c:	cf 92       	push	r12
+    100e:	df 92       	push	r13
+    1010:	ef 92       	push	r14
+    1012:	ff 92       	push	r15
+    1014:	0f 93       	push	r16
+    1016:	1f 93       	push	r17
+    1018:	cf 93       	push	r28
+    101a:	df 93       	push	r29
+    101c:	8c 01       	movw	r16, r24
+    101e:	4b 01       	movw	r8, r22
+    1020:	5a 01       	movw	r10, r20
+    ctx->crc_out = CRC_CCIT_INIT_VAL;
+    1022:	6c 01       	movw	r12, r24
+    1024:	82 ee       	ldi	r24, 0xE2	; 226
+    1026:	c8 1a       	sub	r12, r24
+    1028:	8c ef       	ldi	r24, 0xFC	; 252
+    102a:	d8 0a       	sbc	r13, r24
+    102c:	8f ef       	ldi	r24, 0xFF	; 255
+    102e:	9f ef       	ldi	r25, 0xFF	; 255
+    1030:	f6 01       	movw	r30, r12
+    1032:	91 83       	std	Z+1, r25	; 0x01
+    1034:	80 83       	st	Z, r24
+    fputc(HDLC_FLAG, ctx->ch);
+    1036:	78 01       	movw	r14, r16
+    1038:	f8 ee       	ldi	r31, 0xE8	; 232
+    103a:	ef 1a       	sub	r14, r31
+    103c:	fc ef       	ldi	r31, 0xFC	; 252
+    103e:	ff 0a       	sbc	r15, r31
+    1040:	f7 01       	movw	r30, r14
+    1042:	60 81       	ld	r22, Z
+    1044:	71 81       	ldd	r23, Z+1	; 0x01
+    1046:	8e e7       	ldi	r24, 0x7E	; 126
+    1048:	90 e0       	ldi	r25, 0x00	; 0
+    104a:	0e 94 ba 0a 	call	0x1574	; 0x1574 <fputc>
+    104e:	e4 01       	movw	r28, r8
+    1050:	a8 0c       	add	r10, r8
+    1052:	b9 1c       	adc	r11, r9
+    const uint8_t *buf = (const uint8_t *)_buf;
+    while (len--) ax25_putchar(ctx, *buf++);
+    1054:	ca 15       	cp	r28, r10
+    1056:	db 05       	cpc	r29, r11
+    1058:	29 f0       	breq	.+10     	; 0x1064 <ax25_sendRaw+0x60>
+    105a:	69 91       	ld	r22, Y+
+    105c:	c8 01       	movw	r24, r16
+    105e:	0e 94 01 07 	call	0xe02	; 0xe02 <ax25_putchar>
+    1062:	f8 cf       	rjmp	.-16     	; 0x1054 <ax25_sendRaw+0x50>
+
+    uint8_t crcl = (ctx->crc_out & 0xff) ^ 0xff;
+    1064:	f6 01       	movw	r30, r12
+    1066:	60 81       	ld	r22, Z
+    1068:	c1 81       	ldd	r28, Z+1	; 0x01
+    106a:	60 95       	com	r22
+    uint8_t crch = (ctx->crc_out >> 8) ^ 0xff;
+    ax25_putchar(ctx, crcl);
+    106c:	c8 01       	movw	r24, r16
+    106e:	0e 94 01 07 	call	0xe02	; 0xe02 <ax25_putchar>
+    fputc(HDLC_FLAG, ctx->ch);
+    const uint8_t *buf = (const uint8_t *)_buf;
+    while (len--) ax25_putchar(ctx, *buf++);
+
+    uint8_t crcl = (ctx->crc_out & 0xff) ^ 0xff;
+    uint8_t crch = (ctx->crc_out >> 8) ^ 0xff;
+    1072:	6c 2f       	mov	r22, r28
+    1074:	60 95       	com	r22
+    ax25_putchar(ctx, crcl);
+    ax25_putchar(ctx, crch);
+    1076:	c8 01       	movw	r24, r16
+    1078:	0e 94 01 07 	call	0xe02	; 0xe02 <ax25_putchar>
+
+    fputc(HDLC_FLAG, ctx->ch);
+    107c:	f7 01       	movw	r30, r14
+    107e:	60 81       	ld	r22, Z
+    1080:	71 81       	ldd	r23, Z+1	; 0x01
+    1082:	8e e7       	ldi	r24, 0x7E	; 126
+    1084:	90 e0       	ldi	r25, 0x00	; 0
+}
+    1086:	df 91       	pop	r29
+    1088:	cf 91       	pop	r28
+    108a:	1f 91       	pop	r17
+    108c:	0f 91       	pop	r16
+    108e:	ff 90       	pop	r15
+    1090:	ef 90       	pop	r14
+    1092:	df 90       	pop	r13
+    1094:	cf 90       	pop	r12
+    1096:	bf 90       	pop	r11
+    1098:	af 90       	pop	r10
+    109a:	9f 90       	pop	r9
+    109c:	8f 90       	pop	r8
+    uint8_t crcl = (ctx->crc_out & 0xff) ^ 0xff;
+    uint8_t crch = (ctx->crc_out >> 8) ^ 0xff;
+    ax25_putchar(ctx, crcl);
+    ax25_putchar(ctx, crch);
+
+    fputc(HDLC_FLAG, ctx->ch);
+    109e:	0c 94 ba 0a 	jmp	0x1574	; 0x1574 <fputc>
+
+000010a2 <kiss_init>:
+
+unsigned long slotTime = 200;
+uint8_t p = 63;
+
+void kiss_init(AX25Ctx *ax25, Afsk *afsk, Serial *ser) {
+    ax25ctx = ax25;
+    10a2:	90 93 30 08 	sts	0x0830, r25	; 0x800830 <ax25ctx+0x1>
+    10a6:	80 93 2f 08 	sts	0x082F, r24	; 0x80082f <ax25ctx>
+    serial = ser;
+    10aa:	50 93 fb 04 	sts	0x04FB, r21	; 0x8004fb <serial+0x1>
+    10ae:	40 93 fa 04 	sts	0x04FA, r20	; 0x8004fa <serial>
+    channel = afsk;
+    10b2:	70 93 32 08 	sts	0x0832, r23	; 0x800832 <channel+0x1>
+    10b6:	60 93 31 08 	sts	0x0831, r22	; 0x800831 <channel>
+    10ba:	08 95       	ret
+
+000010bc <kiss_messageCallback>:
+}
+
+void kiss_messageCallback(AX25Ctx *ctx) {
+    10bc:	ef 92       	push	r14
+    10be:	ff 92       	push	r15
+    10c0:	0f 93       	push	r16
+    10c2:	1f 93       	push	r17
+    10c4:	cf 93       	push	r28
+    10c6:	df 93       	push	r29
+    10c8:	ec 01       	movw	r28, r24
+    fputc(FEND, &serial->uart0);
+    10ca:	60 91 fa 04 	lds	r22, 0x04FA	; 0x8004fa <serial>
+    10ce:	70 91 fb 04 	lds	r23, 0x04FB	; 0x8004fb <serial+0x1>
+    10d2:	80 ec       	ldi	r24, 0xC0	; 192
+    10d4:	90 e0       	ldi	r25, 0x00	; 0
+    10d6:	0e 94 ba 0a 	call	0x1574	; 0x1574 <fputc>
+    fputc(0x00, &serial->uart0);
+    10da:	60 91 fa 04 	lds	r22, 0x04FA	; 0x8004fa <serial>
+    10de:	70 91 fb 04 	lds	r23, 0x04FB	; 0x8004fb <serial+0x1>
+    10e2:	80 e0       	ldi	r24, 0x00	; 0
+    10e4:	90 e0       	ldi	r25, 0x00	; 0
+    10e6:	0e 94 ba 0a 	call	0x1574	; 0x1574 <fputc>
+    for (unsigned i = 0; i < ctx->frame_len-2; i++) {
+    10ea:	8e 01       	movw	r16, r28
+    10ec:	7e 01       	movw	r14, r28
+    10ee:	86 ee       	ldi	r24, 0xE6	; 230
+    10f0:	e8 1a       	sub	r14, r24
+    10f2:	8c ef       	ldi	r24, 0xFC	; 252
+    10f4:	f8 0a       	sbc	r15, r24
+    10f6:	f7 01       	movw	r30, r14
+    10f8:	20 81       	ld	r18, Z
+    10fa:	31 81       	ldd	r19, Z+1	; 0x01
+    10fc:	22 50       	subi	r18, 0x02	; 2
+    10fe:	31 09       	sbc	r19, r1
+    1100:	60 91 fa 04 	lds	r22, 0x04FA	; 0x8004fa <serial>
+    1104:	70 91 fb 04 	lds	r23, 0x04FB	; 0x8004fb <serial+0x1>
+    1108:	c8 01       	movw	r24, r16
+    110a:	8c 1b       	sub	r24, r28
+    110c:	9d 0b       	sbc	r25, r29
+    110e:	82 17       	cp	r24, r18
+    1110:	93 07       	cpc	r25, r19
+    1112:	08 f5       	brcc	.+66     	; 0x1156 <kiss_messageCallback+0x9a>
+        uint8_t b = ctx->buf[i];
+    1114:	f8 01       	movw	r30, r16
+    1116:	81 91       	ld	r24, Z+
+    1118:	8f 01       	movw	r16, r30
+        if (b == FEND) {
+    111a:	80 3c       	cpi	r24, 0xC0	; 192
+    111c:	59 f4       	brne	.+22     	; 0x1134 <kiss_messageCallback+0x78>
+            fputc(FESC, &serial->uart0);
+    111e:	8b ed       	ldi	r24, 0xDB	; 219
+    1120:	90 e0       	ldi	r25, 0x00	; 0
+    1122:	0e 94 ba 0a 	call	0x1574	; 0x1574 <fputc>
+            fputc(TFEND, &serial->uart0);
+    1126:	60 91 fa 04 	lds	r22, 0x04FA	; 0x8004fa <serial>
+    112a:	70 91 fb 04 	lds	r23, 0x04FB	; 0x8004fb <serial+0x1>
+    112e:	8c ed       	ldi	r24, 0xDC	; 220
+    1130:	90 e0       	ldi	r25, 0x00	; 0
+    1132:	0e c0       	rjmp	.+28     	; 0x1150 <kiss_messageCallback+0x94>
+        } else if (b == FESC) {
+    1134:	8b 3d       	cpi	r24, 0xDB	; 219
+    1136:	59 f4       	brne	.+22     	; 0x114e <kiss_messageCallback+0x92>
+            fputc(FESC, &serial->uart0);
+    1138:	8b ed       	ldi	r24, 0xDB	; 219
+    113a:	90 e0       	ldi	r25, 0x00	; 0
+    113c:	0e 94 ba 0a 	call	0x1574	; 0x1574 <fputc>
+            fputc(TFESC, &serial->uart0);
+    1140:	60 91 fa 04 	lds	r22, 0x04FA	; 0x8004fa <serial>
+    1144:	70 91 fb 04 	lds	r23, 0x04FB	; 0x8004fb <serial+0x1>
+    1148:	8d ed       	ldi	r24, 0xDD	; 221
+    114a:	90 e0       	ldi	r25, 0x00	; 0
+    114c:	01 c0       	rjmp	.+2      	; 0x1150 <kiss_messageCallback+0x94>
+        } else {
+            fputc(b, &serial->uart0);
+    114e:	90 e0       	ldi	r25, 0x00	; 0
+    1150:	0e 94 ba 0a 	call	0x1574	; 0x1574 <fputc>
+    1154:	d0 cf       	rjmp	.-96     	; 0x10f6 <kiss_messageCallback+0x3a>
+        }
+    }
+    fputc(FEND, &serial->uart0);
+    1156:	80 ec       	ldi	r24, 0xC0	; 192
+    1158:	90 e0       	ldi	r25, 0x00	; 0
+}
+    115a:	df 91       	pop	r29
+    115c:	cf 91       	pop	r28
+    115e:	1f 91       	pop	r17
+    1160:	0f 91       	pop	r16
+    1162:	ff 90       	pop	r15
+    1164:	ef 90       	pop	r14
+            fputc(TFESC, &serial->uart0);
+        } else {
+            fputc(b, &serial->uart0);
+        }
+    }
+    fputc(FEND, &serial->uart0);
+    1166:	0c 94 ba 0a 	jmp	0x1574	; 0x1574 <fputc>
+
+0000116a <kiss_csma>:
+}
+
+void kiss_csma(AX25Ctx *ctx, uint8_t *buf, size_t len) {
+    116a:	4f 92       	push	r4
+    116c:	5f 92       	push	r5
+    116e:	6f 92       	push	r6
+    1170:	7f 92       	push	r7
+    1172:	8f 92       	push	r8
+    1174:	9f 92       	push	r9
+    1176:	af 92       	push	r10
+    1178:	bf 92       	push	r11
+    117a:	ef 92       	push	r14
+    117c:	ff 92       	push	r15
+    117e:	0f 93       	push	r16
+    1180:	1f 93       	push	r17
+    1182:	cf 93       	push	r28
+    1184:	df 93       	push	r29
+    1186:	ec 01       	movw	r28, r24
+    1188:	8b 01       	movw	r16, r22
+    118a:	7a 01       	movw	r14, r20
+    bool sent = false;
+    while (!sent) {
+        //puts("Waiting in CSMA");
+        if(!channel->hdlc.receiving) {
+    118c:	e0 91 31 08 	lds	r30, 0x0831	; 0x800831 <channel>
+    1190:	f0 91 32 08 	lds	r31, 0x0832	; 0x800832 <channel+0x1>
+    1194:	81 89       	ldd	r24, Z+17	; 0x11
+    1196:	81 11       	cpse	r24, r1
+    1198:	45 c0       	rjmp	.+138    	; 0x1224 <kiss_csma+0xba>
+            uint8_t tp = rand() & 0xFF;
+    119a:	0e 94 6c 0a 	call	0x14d8	; 0x14d8 <rand>
+            if (tp < p) {
+    119e:	90 91 00 01 	lds	r25, 0x0100	; 0x800100 <__data_start>
+    11a2:	89 17       	cp	r24, r25
+    11a4:	98 f4       	brcc	.+38     	; 0x11cc <kiss_csma+0x62>
+                ax25_sendRaw(ctx, buf, len);
+    11a6:	a7 01       	movw	r20, r14
+    11a8:	b8 01       	movw	r22, r16
+    11aa:	ce 01       	movw	r24, r28
+            }
+        }
+
+    }
+    
+}
+    11ac:	df 91       	pop	r29
+    11ae:	cf 91       	pop	r28
+    11b0:	1f 91       	pop	r17
+    11b2:	0f 91       	pop	r16
+    11b4:	ff 90       	pop	r15
+    11b6:	ef 90       	pop	r14
+    11b8:	bf 90       	pop	r11
+    11ba:	af 90       	pop	r10
+    11bc:	9f 90       	pop	r9
+    11be:	8f 90       	pop	r8
+    11c0:	7f 90       	pop	r7
+    11c2:	6f 90       	pop	r6
+    11c4:	5f 90       	pop	r5
+    11c6:	4f 90       	pop	r4
+    while (!sent) {
+        //puts("Waiting in CSMA");
+        if(!channel->hdlc.receiving) {
+            uint8_t tp = rand() & 0xFF;
+            if (tp < p) {
+                ax25_sendRaw(ctx, buf, len);
+    11c8:	0c 94 02 08 	jmp	0x1004	; 0x1004 <ax25_sendRaw>
+volatile ticks_t _clock;
+
+static inline ticks_t timer_clock(void) {
+    ticks_t result;
+
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+    11cc:	8f b7       	in	r24, 0x3f	; 63
+    return 1;
+}
+
+static __inline__ uint8_t __iCliRetVal(void)
+{
+    cli();
+    11ce:	f8 94       	cli
+        result = _clock;
+    11d0:	80 90 f6 04 	lds	r8, 0x04F6	; 0x8004f6 <_clock>
+    11d4:	90 90 f7 04 	lds	r9, 0x04F7	; 0x8004f7 <_clock+0x1>
+    11d8:	a0 90 f8 04 	lds	r10, 0x04F8	; 0x8004f8 <_clock+0x2>
+    11dc:	b0 90 f9 04 	lds	r11, 0x04F9	; 0x8004f9 <_clock+0x3>
+    (void)__s;
+}
+
+static __inline__ void __iRestore(const  uint8_t *__s)
+{
+    SREG = *__s;
+    11e0:	8f bf       	out	0x3f, r24	; 63
+    return result;
+}
+
+
+inline ticks_t ms_to_ticks(mtime_t ms) {
+    return ms * DIV_ROUND(CLOCK_TICKS_PER_SEC, 1000);
+    11e2:	20 91 01 01 	lds	r18, 0x0101	; 0x800101 <slotTime>
+    11e6:	30 91 02 01 	lds	r19, 0x0102	; 0x800102 <slotTime+0x1>
+    11ea:	40 91 03 01 	lds	r20, 0x0103	; 0x800103 <slotTime+0x2>
+    11ee:	50 91 04 01 	lds	r21, 0x0104	; 0x800104 <slotTime+0x3>
+    11f2:	aa e0       	ldi	r26, 0x0A	; 10
+    11f4:	b0 e0       	ldi	r27, 0x00	; 0
+    11f6:	0e 94 15 0a 	call	0x142a	; 0x142a <__muluhisi3>
+volatile ticks_t _clock;
+
+static inline ticks_t timer_clock(void) {
+    ticks_t result;
+
+    ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+    11fa:	2f b7       	in	r18, 0x3f	; 63
+    return 1;
+}
+
+static __inline__ uint8_t __iCliRetVal(void)
+{
+    cli();
+    11fc:	f8 94       	cli
+        result = _clock;
+    11fe:	40 90 f6 04 	lds	r4, 0x04F6	; 0x8004f6 <_clock>
+    1202:	50 90 f7 04 	lds	r5, 0x04F7	; 0x8004f7 <_clock+0x1>
+    1206:	60 90 f8 04 	lds	r6, 0x04F8	; 0x8004f8 <_clock+0x2>
+    120a:	70 90 f9 04 	lds	r7, 0x04F9	; 0x8004f9 <_clock+0x3>
+    (void)__s;
+}
+
+static __inline__ void __iRestore(const  uint8_t *__s)
+{
+    SREG = *__s;
+    120e:	2f bf       	out	0x3f, r18	; 63
+                sent = true;
+            } else {
+                ticks_t start = timer_clock();
+                long slot_ticks = ms_to_ticks(slotTime);
+                while (timer_clock() - start < slot_ticks) {
+    1210:	48 18       	sub	r4, r8
+    1212:	59 08       	sbc	r5, r9
+    1214:	6a 08       	sbc	r6, r10
+    1216:	7b 08       	sbc	r7, r11
+    1218:	46 16       	cp	r4, r22
+    121a:	57 06       	cpc	r5, r23
+    121c:	68 06       	cpc	r6, r24
+    121e:	79 06       	cpc	r7, r25
+    1220:	64 f3       	brlt	.-40     	; 0x11fa <kiss_csma+0x90>
+    1222:	b4 cf       	rjmp	.-152    	; 0x118c <kiss_csma+0x22>
+                    cpu_relax();
+                }
+            }
+        } else {
+            while (!sent && channel->hdlc.receiving) {
+    1224:	e0 91 31 08 	lds	r30, 0x0831	; 0x800831 <channel>
+    1228:	f0 91 32 08 	lds	r31, 0x0832	; 0x800832 <channel+0x1>
+    122c:	81 89       	ldd	r24, Z+17	; 0x11
+    122e:	88 23       	and	r24, r24
+    1230:	09 f4       	brne	.+2      	; 0x1234 <kiss_csma+0xca>
+    1232:	ac cf       	rjmp	.-168    	; 0x118c <kiss_csma+0x22>
+                // Continously poll the modem for data
+                // while waiting, so we don't overrun
+                // receive buffers
+                ax25_poll(ax25ctx);
+    1234:	80 91 2f 08 	lds	r24, 0x082F	; 0x80082f <ax25ctx>
+    1238:	90 91 30 08 	lds	r25, 0x0830	; 0x800830 <ax25ctx+0x1>
+    123c:	0e 94 5d 07 	call	0xeba	; 0xeba <ax25_poll>
+
+                if (channel->status != 0) {
+    1240:	e0 91 31 08 	lds	r30, 0x0831	; 0x800831 <channel>
+    1244:	f0 91 32 08 	lds	r31, 0x0832	; 0x800832 <channel+0x1>
+    1248:	e8 53       	subi	r30, 0x38	; 56
+    124a:	ff 4f       	sbci	r31, 0xFF	; 255
+    124c:	80 81       	ld	r24, Z
+    124e:	91 81       	ldd	r25, Z+1	; 0x01
+    1250:	89 2b       	or	r24, r25
+    1252:	41 f3       	breq	.-48     	; 0x1224 <kiss_csma+0xba>
+                    // If an overflow or other error
+                    // occurs, we'll back off and drop
+                    // this packet silently.
+                    channel->status = 0;
+    1254:	11 82       	std	Z+1, r1	; 0x01
+    1256:	10 82       	st	Z, r1
+            }
+        }
+
+    }
+    
+}
+    1258:	df 91       	pop	r29
+    125a:	cf 91       	pop	r28
+    125c:	1f 91       	pop	r17
+    125e:	0f 91       	pop	r16
+    1260:	ff 90       	pop	r15
+    1262:	ef 90       	pop	r14
+    1264:	bf 90       	pop	r11
+    1266:	af 90       	pop	r10
+    1268:	9f 90       	pop	r9
+    126a:	8f 90       	pop	r8
+    126c:	7f 90       	pop	r7
+    126e:	6f 90       	pop	r6
+    1270:	5f 90       	pop	r5
+    1272:	4f 90       	pop	r4
+    1274:	08 95       	ret
+
+00001276 <kiss_serialCallback>:
+    1276:	90 91 33 08 	lds	r25, 0x0833	; 0x800833 <IN_FRAME>
+    127a:	99 23       	and	r25, r25
+    127c:	a1 f0       	breq	.+40     	; 0x12a6 <kiss_serialCallback+0x30>
+    127e:	80 3c       	cpi	r24, 0xC0	; 192
+    1280:	01 f5       	brne	.+64     	; 0x12c2 <kiss_serialCallback+0x4c>
+    1282:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <command>
+    1286:	81 11       	cpse	r24, r1
+    1288:	11 c0       	rjmp	.+34     	; 0x12ac <kiss_serialCallback+0x36>
+    128a:	10 92 33 08 	sts	0x0833, r1	; 0x800833 <IN_FRAME>
+    128e:	40 91 34 08 	lds	r20, 0x0834	; 0x800834 <frame_len>
+    1292:	50 91 35 08 	lds	r21, 0x0835	; 0x800835 <frame_len+0x1>
+    1296:	64 e1       	ldi	r22, 0x14	; 20
+    1298:	71 e0       	ldi	r23, 0x01	; 1
+    129a:	80 91 2f 08 	lds	r24, 0x082F	; 0x80082f <ax25ctx>
+    129e:	90 91 30 08 	lds	r25, 0x0830	; 0x800830 <ax25ctx+0x1>
+    12a2:	0c 94 b5 08 	jmp	0x116a	; 0x116a <kiss_csma>
+    12a6:	80 3c       	cpi	r24, 0xC0	; 192
+    12a8:	09 f0       	breq	.+2      	; 0x12ac <kiss_serialCallback+0x36>
+    12aa:	7b c0       	rjmp	.+246    	; 0x13a2 <kiss_serialCallback+0x12c>
+    12ac:	81 e0       	ldi	r24, 0x01	; 1
+    12ae:	80 93 33 08 	sts	0x0833, r24	; 0x800833 <IN_FRAME>
+    12b2:	8e ef       	ldi	r24, 0xFE	; 254
+    12b4:	80 93 0d 01 	sts	0x010D, r24	; 0x80010d <command>
+    12b8:	10 92 35 08 	sts	0x0835, r1	; 0x800835 <frame_len+0x1>
+    12bc:	10 92 34 08 	sts	0x0834, r1	; 0x800834 <frame_len>
+    12c0:	08 95       	ret
+    12c2:	20 91 34 08 	lds	r18, 0x0834	; 0x800834 <frame_len>
+    12c6:	30 91 35 08 	lds	r19, 0x0835	; 0x800835 <frame_len+0x1>
+    12ca:	28 31       	cpi	r18, 0x18	; 24
+    12cc:	93 e0       	ldi	r25, 0x03	; 3
+    12ce:	39 07       	cpc	r19, r25
+    12d0:	08 f0       	brcs	.+2      	; 0x12d4 <kiss_serialCallback+0x5e>
+    12d2:	67 c0       	rjmp	.+206    	; 0x13a2 <kiss_serialCallback+0x12c>
+    12d4:	90 91 0d 01 	lds	r25, 0x010D	; 0x80010d <command>
+    12d8:	21 15       	cp	r18, r1
+    12da:	31 05       	cpc	r19, r1
+    12dc:	31 f4       	brne	.+12     	; 0x12ea <kiss_serialCallback+0x74>
+    12de:	9e 3f       	cpi	r25, 0xFE	; 254
+    12e0:	21 f4       	brne	.+8      	; 0x12ea <kiss_serialCallback+0x74>
+    12e2:	8f 70       	andi	r24, 0x0F	; 15
+    12e4:	80 93 0d 01 	sts	0x010D, r24	; 0x80010d <command>
+    12e8:	08 95       	ret
+    12ea:	91 11       	cpse	r25, r1
+    12ec:	1f c0       	rjmp	.+62     	; 0x132c <kiss_serialCallback+0xb6>
+    12ee:	8b 3d       	cpi	r24, 0xDB	; 219
+    12f0:	21 f4       	brne	.+8      	; 0x12fa <kiss_serialCallback+0x84>
+    12f2:	81 e0       	ldi	r24, 0x01	; 1
+    12f4:	80 93 2e 08 	sts	0x082E, r24	; 0x80082e <ESCAPE>
+    12f8:	08 95       	ret
+    12fa:	90 91 2e 08 	lds	r25, 0x082E	; 0x80082e <ESCAPE>
+    12fe:	99 23       	and	r25, r25
+    1300:	49 f0       	breq	.+18     	; 0x1314 <kiss_serialCallback+0x9e>
+    1302:	8c 3d       	cpi	r24, 0xDC	; 220
+    1304:	21 f0       	breq	.+8      	; 0x130e <kiss_serialCallback+0x98>
+    1306:	8d 3d       	cpi	r24, 0xDD	; 221
+    1308:	19 f4       	brne	.+6      	; 0x1310 <kiss_serialCallback+0x9a>
+    130a:	8b ed       	ldi	r24, 0xDB	; 219
+    130c:	01 c0       	rjmp	.+2      	; 0x1310 <kiss_serialCallback+0x9a>
+    130e:	80 ec       	ldi	r24, 0xC0	; 192
+    1310:	10 92 2e 08 	sts	0x082E, r1	; 0x80082e <ESCAPE>
+    1314:	a9 01       	movw	r20, r18
+    1316:	4f 5f       	subi	r20, 0xFF	; 255
+    1318:	5f 4f       	sbci	r21, 0xFF	; 255
+    131a:	50 93 35 08 	sts	0x0835, r21	; 0x800835 <frame_len+0x1>
+    131e:	40 93 34 08 	sts	0x0834, r20	; 0x800834 <frame_len>
+    1322:	f9 01       	movw	r30, r18
+    1324:	ec 5e       	subi	r30, 0xEC	; 236
+    1326:	fe 4f       	sbci	r31, 0xFE	; 254
+    1328:	80 83       	st	Z, r24
+    132a:	08 95       	ret
+    132c:	91 30       	cpi	r25, 0x01	; 1
+    132e:	79 f4       	brne	.+30     	; 0x134e <kiss_serialCallback+0xd8>
+    1330:	28 2f       	mov	r18, r24
+    1332:	30 e0       	ldi	r19, 0x00	; 0
+    1334:	aa e0       	ldi	r26, 0x0A	; 10
+    1336:	b0 e0       	ldi	r27, 0x00	; 0
+    1338:	0e 94 06 0a 	call	0x140c	; 0x140c <__umulhisi3>
+    133c:	60 93 09 01 	sts	0x0109, r22	; 0x800109 <custom_preamble>
+    1340:	70 93 0a 01 	sts	0x010A, r23	; 0x80010a <custom_preamble+0x1>
+    1344:	80 93 0b 01 	sts	0x010B, r24	; 0x80010b <custom_preamble+0x2>
+    1348:	90 93 0c 01 	sts	0x010C, r25	; 0x80010c <custom_preamble+0x3>
+    134c:	08 95       	ret
+    134e:	94 30       	cpi	r25, 0x04	; 4
+    1350:	89 f4       	brne	.+34     	; 0x1374 <kiss_serialCallback+0xfe>
+    1352:	2a e0       	ldi	r18, 0x0A	; 10
+    1354:	82 9f       	mul	r24, r18
+    1356:	c0 01       	movw	r24, r0
+    1358:	11 24       	eor	r1, r1
+    135a:	09 2e       	mov	r0, r25
+    135c:	00 0c       	add	r0, r0
+    135e:	aa 0b       	sbc	r26, r26
+    1360:	bb 0b       	sbc	r27, r27
+    1362:	80 93 05 01 	sts	0x0105, r24	; 0x800105 <custom_tail>
+    1366:	90 93 06 01 	sts	0x0106, r25	; 0x800106 <custom_tail+0x1>
+    136a:	a0 93 07 01 	sts	0x0107, r26	; 0x800107 <custom_tail+0x2>
+    136e:	b0 93 08 01 	sts	0x0108, r27	; 0x800108 <custom_tail+0x3>
+    1372:	08 95       	ret
+    1374:	93 30       	cpi	r25, 0x03	; 3
+    1376:	89 f4       	brne	.+34     	; 0x139a <kiss_serialCallback+0x124>
+    1378:	2a e0       	ldi	r18, 0x0A	; 10
+    137a:	82 9f       	mul	r24, r18
+    137c:	c0 01       	movw	r24, r0
+    137e:	11 24       	eor	r1, r1
+    1380:	09 2e       	mov	r0, r25
+    1382:	00 0c       	add	r0, r0
+    1384:	aa 0b       	sbc	r26, r26
+    1386:	bb 0b       	sbc	r27, r27
+    1388:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <slotTime>
+    138c:	90 93 02 01 	sts	0x0102, r25	; 0x800102 <slotTime+0x1>
+    1390:	a0 93 03 01 	sts	0x0103, r26	; 0x800103 <slotTime+0x2>
+    1394:	b0 93 04 01 	sts	0x0104, r27	; 0x800104 <slotTime+0x3>
+    1398:	08 95       	ret
+    139a:	92 30       	cpi	r25, 0x02	; 2
+    139c:	11 f4       	brne	.+4      	; 0x13a2 <kiss_serialCallback+0x12c>
+    139e:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__data_start>
+    13a2:	08 95       	ret
+
+000013a4 <main>:
+    13a4:	0e 94 95 01 	call	0x32a	; 0x32a <init>
+    13a8:	39 9a       	sbi	0x07, 1	; 7
+    13aa:	41 9a       	sbi	0x08, 1	; 8
+    13ac:	88 e0       	ldi	r24, 0x08	; 8
+    13ae:	95 e0       	ldi	r25, 0x05	; 5
+    13b0:	0e 94 5d 07 	call	0xeba	; 0xeba <ax25_poll>
+    13b4:	80 e0       	ldi	r24, 0x00	; 0
+    13b6:	0e 94 04 02 	call	0x408	; 0x408 <serial_available>
+    13ba:	88 23       	and	r24, r24
+    13bc:	b9 f3       	breq	.-18     	; 0x13ac <main+0x8>
+    13be:	0e 94 0e 02 	call	0x41c	; 0x41c <uart0_getchar_nowait>
+    13c2:	0e 94 3b 09 	call	0x1276	; 0x1276 <kiss_serialCallback>
+    13c6:	f2 cf       	rjmp	.-28     	; 0x13ac <main+0x8>
+
+000013c8 <__udivmodsi4>:
+    13c8:	a1 e2       	ldi	r26, 0x21	; 33
+    13ca:	1a 2e       	mov	r1, r26
+    13cc:	aa 1b       	sub	r26, r26
+    13ce:	bb 1b       	sub	r27, r27
+    13d0:	fd 01       	movw	r30, r26
+    13d2:	0d c0       	rjmp	.+26     	; 0x13ee <__udivmodsi4_ep>
+
+000013d4 <__udivmodsi4_loop>:
+    13d4:	aa 1f       	adc	r26, r26
+    13d6:	bb 1f       	adc	r27, r27
+    13d8:	ee 1f       	adc	r30, r30
+    13da:	ff 1f       	adc	r31, r31
+    13dc:	a2 17       	cp	r26, r18
+    13de:	b3 07       	cpc	r27, r19
+    13e0:	e4 07       	cpc	r30, r20
+    13e2:	f5 07       	cpc	r31, r21
+    13e4:	20 f0       	brcs	.+8      	; 0x13ee <__udivmodsi4_ep>
+    13e6:	a2 1b       	sub	r26, r18
+    13e8:	b3 0b       	sbc	r27, r19
+    13ea:	e4 0b       	sbc	r30, r20
+    13ec:	f5 0b       	sbc	r31, r21
+
+000013ee <__udivmodsi4_ep>:
+    13ee:	66 1f       	adc	r22, r22
+    13f0:	77 1f       	adc	r23, r23
+    13f2:	88 1f       	adc	r24, r24
+    13f4:	99 1f       	adc	r25, r25
+    13f6:	1a 94       	dec	r1
+    13f8:	69 f7       	brne	.-38     	; 0x13d4 <__udivmodsi4_loop>
+    13fa:	60 95       	com	r22
+    13fc:	70 95       	com	r23
+    13fe:	80 95       	com	r24
+    1400:	90 95       	com	r25
+    1402:	9b 01       	movw	r18, r22
+    1404:	ac 01       	movw	r20, r24
+    1406:	bd 01       	movw	r22, r26
+    1408:	cf 01       	movw	r24, r30
+    140a:	08 95       	ret
+
+0000140c <__umulhisi3>:
+    140c:	a2 9f       	mul	r26, r18
+    140e:	b0 01       	movw	r22, r0
+    1410:	b3 9f       	mul	r27, r19
+    1412:	c0 01       	movw	r24, r0
+    1414:	a3 9f       	mul	r26, r19
+    1416:	70 0d       	add	r23, r0
+    1418:	81 1d       	adc	r24, r1
+    141a:	11 24       	eor	r1, r1
+    141c:	91 1d       	adc	r25, r1
+    141e:	b2 9f       	mul	r27, r18
+    1420:	70 0d       	add	r23, r0
+    1422:	81 1d       	adc	r24, r1
+    1424:	11 24       	eor	r1, r1
+    1426:	91 1d       	adc	r25, r1
+    1428:	08 95       	ret
+
+0000142a <__muluhisi3>:
+    142a:	0e 94 06 0a 	call	0x140c	; 0x140c <__umulhisi3>
+    142e:	a5 9f       	mul	r26, r21
+    1430:	90 0d       	add	r25, r0
+    1432:	b4 9f       	mul	r27, r20
+    1434:	90 0d       	add	r25, r0
+    1436:	a4 9f       	mul	r26, r20
+    1438:	80 0d       	add	r24, r0
+    143a:	91 1d       	adc	r25, r1
+    143c:	11 24       	eor	r1, r1
+    143e:	08 95       	ret
+
+00001440 <do_rand>:
+    1440:	8f 92       	push	r8
+    1442:	9f 92       	push	r9
+    1444:	af 92       	push	r10
+    1446:	bf 92       	push	r11
+    1448:	cf 92       	push	r12
+    144a:	df 92       	push	r13
+    144c:	ef 92       	push	r14
+    144e:	ff 92       	push	r15
+    1450:	cf 93       	push	r28
+    1452:	df 93       	push	r29
+    1454:	ec 01       	movw	r28, r24
+    1456:	68 81       	ld	r22, Y
+    1458:	79 81       	ldd	r23, Y+1	; 0x01
+    145a:	8a 81       	ldd	r24, Y+2	; 0x02
+    145c:	9b 81       	ldd	r25, Y+3	; 0x03
+    145e:	61 15       	cp	r22, r1
+    1460:	71 05       	cpc	r23, r1
+    1462:	81 05       	cpc	r24, r1
+    1464:	91 05       	cpc	r25, r1
+    1466:	21 f4       	brne	.+8      	; 0x1470 <do_rand+0x30>
+    1468:	64 e2       	ldi	r22, 0x24	; 36
+    146a:	79 ed       	ldi	r23, 0xD9	; 217
+    146c:	8b e5       	ldi	r24, 0x5B	; 91
+    146e:	97 e0       	ldi	r25, 0x07	; 7
+    1470:	2d e1       	ldi	r18, 0x1D	; 29
+    1472:	33 ef       	ldi	r19, 0xF3	; 243
+    1474:	41 e0       	ldi	r20, 0x01	; 1
+    1476:	50 e0       	ldi	r21, 0x00	; 0
+    1478:	0e 94 f2 0a 	call	0x15e4	; 0x15e4 <__divmodsi4>
+    147c:	49 01       	movw	r8, r18
+    147e:	5a 01       	movw	r10, r20
+    1480:	9b 01       	movw	r18, r22
+    1482:	ac 01       	movw	r20, r24
+    1484:	a7 ea       	ldi	r26, 0xA7	; 167
+    1486:	b1 e4       	ldi	r27, 0x41	; 65
+    1488:	0e 94 15 0a 	call	0x142a	; 0x142a <__muluhisi3>
+    148c:	6b 01       	movw	r12, r22
+    148e:	7c 01       	movw	r14, r24
+    1490:	ac ee       	ldi	r26, 0xEC	; 236
+    1492:	b4 ef       	ldi	r27, 0xF4	; 244
+    1494:	a5 01       	movw	r20, r10
+    1496:	94 01       	movw	r18, r8
+    1498:	0e 94 14 0b 	call	0x1628	; 0x1628 <__mulohisi3>
+    149c:	dc 01       	movw	r26, r24
+    149e:	cb 01       	movw	r24, r22
+    14a0:	8c 0d       	add	r24, r12
+    14a2:	9d 1d       	adc	r25, r13
+    14a4:	ae 1d       	adc	r26, r14
+    14a6:	bf 1d       	adc	r27, r15
+    14a8:	b7 ff       	sbrs	r27, 7
+    14aa:	03 c0       	rjmp	.+6      	; 0x14b2 <do_rand+0x72>
+    14ac:	01 97       	sbiw	r24, 0x01	; 1
+    14ae:	a1 09       	sbc	r26, r1
+    14b0:	b0 48       	sbci	r27, 0x80	; 128
+    14b2:	88 83       	st	Y, r24
+    14b4:	99 83       	std	Y+1, r25	; 0x01
+    14b6:	aa 83       	std	Y+2, r26	; 0x02
+    14b8:	bb 83       	std	Y+3, r27	; 0x03
+    14ba:	9f 77       	andi	r25, 0x7F	; 127
+    14bc:	df 91       	pop	r29
+    14be:	cf 91       	pop	r28
+    14c0:	ff 90       	pop	r15
+    14c2:	ef 90       	pop	r14
+    14c4:	df 90       	pop	r13
+    14c6:	cf 90       	pop	r12
+    14c8:	bf 90       	pop	r11
+    14ca:	af 90       	pop	r10
+    14cc:	9f 90       	pop	r9
+    14ce:	8f 90       	pop	r8
+    14d0:	08 95       	ret
+
+000014d2 <rand_r>:
+    14d2:	0e 94 20 0a 	call	0x1440	; 0x1440 <do_rand>
+    14d6:	08 95       	ret
+
+000014d8 <rand>:
+    14d8:	8e e0       	ldi	r24, 0x0E	; 14
+    14da:	91 e0       	ldi	r25, 0x01	; 1
+    14dc:	0e 94 20 0a 	call	0x1440	; 0x1440 <do_rand>
+    14e0:	08 95       	ret
+
+000014e2 <srand>:
+    14e2:	a0 e0       	ldi	r26, 0x00	; 0
+    14e4:	b0 e0       	ldi	r27, 0x00	; 0
+    14e6:	80 93 0e 01 	sts	0x010E, r24	; 0x80010e <next>
+    14ea:	90 93 0f 01 	sts	0x010F, r25	; 0x80010f <next+0x1>
+    14ee:	a0 93 10 01 	sts	0x0110, r26	; 0x800110 <next+0x2>
+    14f2:	b0 93 11 01 	sts	0x0111, r27	; 0x800111 <next+0x3>
+    14f6:	08 95       	ret
+
+000014f8 <fgetc>:
+    14f8:	cf 93       	push	r28
+    14fa:	df 93       	push	r29
+    14fc:	ec 01       	movw	r28, r24
+    14fe:	2b 81       	ldd	r18, Y+3	; 0x03
+    1500:	20 ff       	sbrs	r18, 0
+    1502:	33 c0       	rjmp	.+102    	; 0x156a <fgetc+0x72>
+    1504:	26 ff       	sbrs	r18, 6
+    1506:	0a c0       	rjmp	.+20     	; 0x151c <fgetc+0x24>
+    1508:	2f 7b       	andi	r18, 0xBF	; 191
+    150a:	2b 83       	std	Y+3, r18	; 0x03
+    150c:	8e 81       	ldd	r24, Y+6	; 0x06
+    150e:	9f 81       	ldd	r25, Y+7	; 0x07
+    1510:	01 96       	adiw	r24, 0x01	; 1
+    1512:	9f 83       	std	Y+7, r25	; 0x07
+    1514:	8e 83       	std	Y+6, r24	; 0x06
+    1516:	8a 81       	ldd	r24, Y+2	; 0x02
+    1518:	90 e0       	ldi	r25, 0x00	; 0
+    151a:	29 c0       	rjmp	.+82     	; 0x156e <fgetc+0x76>
+    151c:	22 ff       	sbrs	r18, 2
+    151e:	0f c0       	rjmp	.+30     	; 0x153e <fgetc+0x46>
+    1520:	e8 81       	ld	r30, Y
+    1522:	f9 81       	ldd	r31, Y+1	; 0x01
+    1524:	80 81       	ld	r24, Z
+    1526:	08 2e       	mov	r0, r24
+    1528:	00 0c       	add	r0, r0
+    152a:	99 0b       	sbc	r25, r25
+    152c:	00 97       	sbiw	r24, 0x00	; 0
+    152e:	19 f4       	brne	.+6      	; 0x1536 <fgetc+0x3e>
+    1530:	20 62       	ori	r18, 0x20	; 32
+    1532:	2b 83       	std	Y+3, r18	; 0x03
+    1534:	1a c0       	rjmp	.+52     	; 0x156a <fgetc+0x72>
+    1536:	31 96       	adiw	r30, 0x01	; 1
+    1538:	f9 83       	std	Y+1, r31	; 0x01
+    153a:	e8 83       	st	Y, r30
+    153c:	0e c0       	rjmp	.+28     	; 0x155a <fgetc+0x62>
+    153e:	ea 85       	ldd	r30, Y+10	; 0x0a
+    1540:	fb 85       	ldd	r31, Y+11	; 0x0b
+    1542:	09 95       	icall
+    1544:	97 ff       	sbrs	r25, 7
+    1546:	09 c0       	rjmp	.+18     	; 0x155a <fgetc+0x62>
+    1548:	2b 81       	ldd	r18, Y+3	; 0x03
+    154a:	01 96       	adiw	r24, 0x01	; 1
+    154c:	11 f0       	breq	.+4      	; 0x1552 <fgetc+0x5a>
+    154e:	80 e2       	ldi	r24, 0x20	; 32
+    1550:	01 c0       	rjmp	.+2      	; 0x1554 <fgetc+0x5c>
+    1552:	80 e1       	ldi	r24, 0x10	; 16
+    1554:	82 2b       	or	r24, r18
+    1556:	8b 83       	std	Y+3, r24	; 0x03
+    1558:	08 c0       	rjmp	.+16     	; 0x156a <fgetc+0x72>
+    155a:	2e 81       	ldd	r18, Y+6	; 0x06
+    155c:	3f 81       	ldd	r19, Y+7	; 0x07
+    155e:	2f 5f       	subi	r18, 0xFF	; 255
+    1560:	3f 4f       	sbci	r19, 0xFF	; 255
+    1562:	3f 83       	std	Y+7, r19	; 0x07
+    1564:	2e 83       	std	Y+6, r18	; 0x06
+    1566:	99 27       	eor	r25, r25
+    1568:	02 c0       	rjmp	.+4      	; 0x156e <fgetc+0x76>
+    156a:	8f ef       	ldi	r24, 0xFF	; 255
+    156c:	9f ef       	ldi	r25, 0xFF	; 255
+    156e:	df 91       	pop	r29
+    1570:	cf 91       	pop	r28
+    1572:	08 95       	ret
+
+00001574 <fputc>:
+    1574:	0f 93       	push	r16
+    1576:	1f 93       	push	r17
+    1578:	cf 93       	push	r28
+    157a:	df 93       	push	r29
+    157c:	fb 01       	movw	r30, r22
+    157e:	23 81       	ldd	r18, Z+3	; 0x03
+    1580:	21 fd       	sbrc	r18, 1
+    1582:	03 c0       	rjmp	.+6      	; 0x158a <fputc+0x16>
+    1584:	8f ef       	ldi	r24, 0xFF	; 255
+    1586:	9f ef       	ldi	r25, 0xFF	; 255
+    1588:	28 c0       	rjmp	.+80     	; 0x15da <fputc+0x66>
+    158a:	22 ff       	sbrs	r18, 2
+    158c:	16 c0       	rjmp	.+44     	; 0x15ba <fputc+0x46>
+    158e:	46 81       	ldd	r20, Z+6	; 0x06
+    1590:	57 81       	ldd	r21, Z+7	; 0x07
+    1592:	24 81       	ldd	r18, Z+4	; 0x04
+    1594:	35 81       	ldd	r19, Z+5	; 0x05
+    1596:	42 17       	cp	r20, r18
+    1598:	53 07       	cpc	r21, r19
+    159a:	44 f4       	brge	.+16     	; 0x15ac <fputc+0x38>
+    159c:	a0 81       	ld	r26, Z
+    159e:	b1 81       	ldd	r27, Z+1	; 0x01
+    15a0:	9d 01       	movw	r18, r26
+    15a2:	2f 5f       	subi	r18, 0xFF	; 255
+    15a4:	3f 4f       	sbci	r19, 0xFF	; 255
+    15a6:	31 83       	std	Z+1, r19	; 0x01
+    15a8:	20 83       	st	Z, r18
+    15aa:	8c 93       	st	X, r24
+    15ac:	26 81       	ldd	r18, Z+6	; 0x06
+    15ae:	37 81       	ldd	r19, Z+7	; 0x07
+    15b0:	2f 5f       	subi	r18, 0xFF	; 255
+    15b2:	3f 4f       	sbci	r19, 0xFF	; 255
+    15b4:	37 83       	std	Z+7, r19	; 0x07
+    15b6:	26 83       	std	Z+6, r18	; 0x06
+    15b8:	10 c0       	rjmp	.+32     	; 0x15da <fputc+0x66>
+    15ba:	eb 01       	movw	r28, r22
+    15bc:	09 2f       	mov	r16, r25
+    15be:	18 2f       	mov	r17, r24
+    15c0:	00 84       	ldd	r0, Z+8	; 0x08
+    15c2:	f1 85       	ldd	r31, Z+9	; 0x09
+    15c4:	e0 2d       	mov	r30, r0
+    15c6:	09 95       	icall
+    15c8:	89 2b       	or	r24, r25
+    15ca:	e1 f6       	brne	.-72     	; 0x1584 <fputc+0x10>
+    15cc:	8e 81       	ldd	r24, Y+6	; 0x06
+    15ce:	9f 81       	ldd	r25, Y+7	; 0x07
+    15d0:	01 96       	adiw	r24, 0x01	; 1
+    15d2:	9f 83       	std	Y+7, r25	; 0x07
+    15d4:	8e 83       	std	Y+6, r24	; 0x06
+    15d6:	81 2f       	mov	r24, r17
+    15d8:	90 2f       	mov	r25, r16
+    15da:	df 91       	pop	r29
+    15dc:	cf 91       	pop	r28
+    15de:	1f 91       	pop	r17
+    15e0:	0f 91       	pop	r16
+    15e2:	08 95       	ret
+
+000015e4 <__divmodsi4>:
+    15e4:	05 2e       	mov	r0, r21
+    15e6:	97 fb       	bst	r25, 7
+    15e8:	1e f4       	brtc	.+6      	; 0x15f0 <__divmodsi4+0xc>
+    15ea:	00 94       	com	r0
+    15ec:	0e 94 09 0b 	call	0x1612	; 0x1612 <__negsi2>
+    15f0:	57 fd       	sbrc	r21, 7
+    15f2:	07 d0       	rcall	.+14     	; 0x1602 <__divmodsi4_neg2>
+    15f4:	0e 94 e4 09 	call	0x13c8	; 0x13c8 <__udivmodsi4>
+    15f8:	07 fc       	sbrc	r0, 7
+    15fa:	03 d0       	rcall	.+6      	; 0x1602 <__divmodsi4_neg2>
+    15fc:	4e f4       	brtc	.+18     	; 0x1610 <__divmodsi4_exit>
+    15fe:	0c 94 09 0b 	jmp	0x1612	; 0x1612 <__negsi2>
+
+00001602 <__divmodsi4_neg2>:
+    1602:	50 95       	com	r21
+    1604:	40 95       	com	r20
+    1606:	30 95       	com	r19
+    1608:	21 95       	neg	r18
+    160a:	3f 4f       	sbci	r19, 0xFF	; 255
+    160c:	4f 4f       	sbci	r20, 0xFF	; 255
+    160e:	5f 4f       	sbci	r21, 0xFF	; 255
+
+00001610 <__divmodsi4_exit>:
+    1610:	08 95       	ret
+
+00001612 <__negsi2>:
+    1612:	90 95       	com	r25
+    1614:	80 95       	com	r24
+    1616:	70 95       	com	r23
+    1618:	61 95       	neg	r22
+    161a:	7f 4f       	sbci	r23, 0xFF	; 255
+    161c:	8f 4f       	sbci	r24, 0xFF	; 255
+    161e:	9f 4f       	sbci	r25, 0xFF	; 255
+    1620:	08 95       	ret
+
+00001622 <__mulshisi3>:
+    1622:	b7 ff       	sbrs	r27, 7
+    1624:	0c 94 15 0a 	jmp	0x142a	; 0x142a <__muluhisi3>
+
+00001628 <__mulohisi3>:
+    1628:	0e 94 15 0a 	call	0x142a	; 0x142a <__muluhisi3>
+    162c:	82 1b       	sub	r24, r18
+    162e:	93 0b       	sbc	r25, r19
+    1630:	08 95       	ret
+
+00001632 <_exit>:
+    1632:	f8 94       	cli
+
+00001634 <__stop_program>:
+    1634:	ff cf       	rjmp	.-2      	; 0x1634 <__stop_program>

@@ -1,2 +1,3 @@
 # KISS Radiomodem
-This is a KISS Radiomodem with Dorji DRA818V as VHF TRX. 
+<p>This is a KISS Radiomodem with Dorji DRA818V as VHF TRX. All credits to Mark Qvist since most of this software is from <a href="https://github.com/markqvist/MicroAPRS">MicroAPRS</a>. I did some changes of how the PTT pin is contrled so there is no need for a transistor to control the PTT and I also changed preamble to 1500. The reason for the preamble change is that the T/R swithcing is quite slow on the radio module. </p>
+<p>I am going to add bit banging UART, so its possible to configure the radio module from the microcontroller and I am also going to change the uC from ATmega328 to ATmega328p. there is also going to be a USB-LVTTL converter IC, but this is for the final design. </p>
