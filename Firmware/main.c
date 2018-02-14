@@ -1,5 +1,7 @@
 #include <stdbool.h>
 #include <avr/io.h>
+#include <avr/interrupt.h>
+#include <avr/pgmspace.h>
 
 #include "device.h"
 #include "util/FIFO.h"
@@ -7,6 +9,7 @@
 #include "hardware/AFSK.h"
 #include "hardware/Serial.h"
 #include "protocol/AX25.h"
+#include "hardware/softuart.h"
 
 #if SERIAL_PROTOCOL == PROTOCOL_KISS
     #include "protocol/KISS.h"
@@ -57,6 +60,28 @@ void init(void) {
 }
 
 int main (void) {
+
+	char c;
+	static const char pstring[] PROGMEM = 
+		"adapted for Atmel AVR and this demo by Martin Thomas\r\n";
+	unsigned short cnt = 0;
+#if (F_CPU > 4000000UL)
+#define CNTHALLO (unsigned int)(0xFFFF)
+#else 
+#define CNTHALLO (unsigned int)(0xFFFF/3)
+#endif
+
+	softuart_init();
+	softuart_turn_rx_on(); /* redundant - on by default */
+	
+	sei();
+
+	softuart_puts_P( "\r\nSoftuart Demo-Application\r\n" );    // "implicit" PSTR
+	softuart_puts_p( PSTR("generic softuart driver code by Colin Gittins\r\n") ); // explicit PSTR
+	softuart_puts_p( pstring ); // pstring defined with PROGMEM
+	softuart_puts( "--\r\n" );  // string "from RAM"
+
+
     init();
 	DDRC |= _BV(1);
 	PORTC |= _BV(1);
