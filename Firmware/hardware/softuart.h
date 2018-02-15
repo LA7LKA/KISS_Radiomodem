@@ -1,8 +1,8 @@
 #if !defined(F_CPU)
     #warning "F_CPU not defined in makefile - now defined in softuart.h"
-    #define F_CPU 3686400UL
+    #define F_CPU 8000000UL
 #endif
-
+#define __AVR_ATmega328P__
 #define SOFTUART_BAUD_RATE      9600
 
 #if defined (__AVR_ATtiny25__) || defined (__AVR_ATtiny45__) || defined (__AVR_ATtiny85__)
@@ -45,13 +45,13 @@
    || defined (__AVR_ATmega328P__) || defined (__AVR_ATmega328PA__) \
    || defined (__AVR_ATmega164P__) || defined (__AVR_ATmega164A__)
 
-    #define SOFTUART_RXPIN   PIND
-    #define SOFTUART_RXDDR   DDRD
-    #define SOFTUART_RXBIT   PD0
+    #define SOFTUART_RXPIN   PINC
+    #define SOFTUART_RXDDR   DDRC
+    #define SOFTUART_RXBIT   PC3
 
-    #define SOFTUART_TXPORT  PORTD
-    #define SOFTUART_TXDDR   DDRD
-    #define SOFTUART_TXBIT   PD1
+    #define SOFTUART_TXPORT  PORTC
+    #define SOFTUART_TXDDR   DDRC
+    #define SOFTUART_TXBIT   PC4
 
     #define SOFTUART_T_COMP_LABEL      TIMER0_COMPA_vect
     #define SOFTUART_T_COMP_REG        OCR0A
